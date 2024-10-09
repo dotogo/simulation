@@ -5,6 +5,7 @@ import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class UtilSimulation {
     private static final Random RANDOM = new Random();
@@ -18,16 +19,27 @@ public class UtilSimulation {
         return UtilSimulation.RANDOM.nextInt((max - min) + 1) + min;
     }
 
-//    public static boolean isCreatureDiedAndRemoved(Creature creature, WorldMap worldMap) {
-//        if (creature.getHealthPoints() <= 0) {
-//            Coordinates coordinates = creature.getCoordinates();
-//            worldMap.removeEntity(coordinates);
-//            return true;
-//
-//        } else {
-//            return false;
-//        }
-//    }
+    public static int getPositiveIntFromKeyboard() {
+        Scanner scanner = new Scanner(System.in);
+        String input;
+        int number;
+
+        while (true) {
+            System.out.print("Enter a positive integer: ");
+            input = scanner.nextLine().trim();
+
+            if (input.matches("\\d+")) {
+                number = Integer.parseInt(input);
+                break;
+            } else {
+                System.out.println("This is not a positive integer. Try again.");
+            }
+        }
+
+        return number;
+    }
+
+
 
 
 

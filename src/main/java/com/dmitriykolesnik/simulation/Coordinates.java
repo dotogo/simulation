@@ -7,7 +7,6 @@ public class Coordinates {
     private final int y;
 
     public Coordinates(int x, int y) {
-        // сделать проверку, что положительные
         this.x = x;
         this.y = y;
     }

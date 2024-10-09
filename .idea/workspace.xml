@@ -5,87 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Coordinates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/MovementLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/Actions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/ActionsDataSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/CountGrassAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/InitAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/SetWorldSizeAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/TurnAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/WelcomeAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/EntityType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/Creature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/PreyForBigPredators.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/PreyForMediumPredators.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/PreyForSmallPredators.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/NonPredator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Buffalo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Herbivore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Sheep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Zebra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/rodents/Mouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/rodents/Rabbit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/rodents/Rodent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Lion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Predator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/T_Rex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Wolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/EdiblePlant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/FoodForHerbivores.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/FoodForRodents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Grain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Grass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Rock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Tree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/EntityFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/NonPredatorEntityFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/PredatorEntityFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/StaticEntityFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/BuffaloFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/CatFactoryRandom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/GrassFactoryRandom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/LionFactoryRandom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/MouseFactoryRandom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/RabbitFactoryRandom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/RandomEntityFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/RockFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/SheepFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/T_RexFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/TreeFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/WolfFactoryRandom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/ZebraFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/exceptions/EntityNotCreatedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/exceptions/EntityNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/for_something/ForSomething.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/BreadthFirstSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/PathFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/IdCounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/UtilSimulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/view/ConsoleWorldMapRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/view/WorldMapRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/RandomWorldMapFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/TestWorldMapFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/TestWorldMapFactory_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WolfRabbitWorldMapFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMapFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/simplelogger.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/SetWorldSizeAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/SetWorldSizeAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/UtilSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/UtilSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Симуляция ТЗ.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

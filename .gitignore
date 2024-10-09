@@ -51,3 +51,6 @@ pom.xml.backup
 *.jar
 *.war
 *.ear
+
+src/text.txt
+Симуляция ТЗ.docx

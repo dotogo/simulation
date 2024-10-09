@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simulation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/MovementLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/Actions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/ActionsDataSingleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/CountGrassAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/InitAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/SetWorldSizeAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/TurnAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/WelcomeAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/EntityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/Creature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/PreyForBigPredators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/PreyForMediumPredators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/PreyForSmallPredators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/NonPredator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Buffalo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Herbivore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Sheep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/herbivores/Zebra.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/rodents/Mouse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/rodents/Rabbit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/rodents/Rodent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Lion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Predator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/T_Rex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Wolf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/EdiblePlant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/FoodForHerbivores.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/FoodForRodents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Grain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Grass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Rock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/static_entities/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/EntityFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/NonPredatorEntityFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/PredatorEntityFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/StaticEntityFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/BuffaloFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/CatFactoryRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/GrassFactoryRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/LionFactoryRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/MouseFactoryRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/RabbitFactoryRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/RandomEntityFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/RockFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/SheepFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/T_RexFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/TreeFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/WolfFactoryRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/impl/ZebraFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/exceptions/EntityNotCreatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/exceptions/EntityNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/for_something/ForSomething.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/BreadthFirstSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/PathFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/IdCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/UtilSimulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/view/ConsoleWorldMapRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/view/WorldMapRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/RandomWorldMapFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/TestWorldMapFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/TestWorldMapFactory_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WolfRabbitWorldMapFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMapFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/simplelogger.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2jyV8OGrmxqvhDCq5rCWDLNfdxD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ForSomething.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.TestMain.executor": "Run",
+    "Application.com.dmitriykolesnik.simulation.Main.executor": "Run",
+    "Application.com.dmitriykolesnik.simulation.for_something.ForSomething.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Maven.simulation [clean].executor": "Run",
+    "Maven.simulation [compile].executor": "Run",
+    "Maven.simulation [package].executor": "Run",
+    "Maven.simulation [validate].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/INFO/Java projects/MyProjects/Simulation",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dmitriykolesnik.simulation.entities.moving_entities.predators" />
+      <recent name="com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.rodents" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.com.dmitriykolesnik.simulation.Main">
+    <configuration name="ForSomething" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.simulation.for_something.ForSomething" />
+      <module name="Simulation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.simulation.for_something.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.simulation.Main" />
+      <module name="Simulation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.simulation.world_map.RandomWorldMapFactory" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dmitriykolesnik.simulation.for_something.TestMain" />
+      <module name="simulation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmitriykolesnik.simulation.for_something.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.dmitriykolesnik.simulation.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dmitriykolesnik.simulation.Main" />
+      <module name="simulation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmitriykolesnik.simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.dmitriykolesnik.simulation.for_something.ForSomething" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dmitriykolesnik.simulation.for_something.ForSomething" />
+      <module name="simulation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmitriykolesnik.simulation.for_something.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.com.dmitriykolesnik.simulation.Main" />
+        <item itemvalue="Application.com.dmitriykolesnik.simulation.for_something.ForSomething" />
+        <item itemvalue="Application.TestMain" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ForSomething" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="" />
+      <created>1722359145087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722359145087</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

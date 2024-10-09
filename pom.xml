@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dmitriykolesnik</groupId> <!-- Замените на свой groupId -->
+    <artifactId>simulation</artifactId> <!-- Замените на свой artifactId -->
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- Здесь будут добавлены ваши зависимости -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version> <!-- или новее -->
+        </dependency>
+
+    </dependencies>
+
+    <!-- Добавьте эту секцию для указания версии Java -->
+    <properties>
+
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <!-- Указываем кодировку в свойствах проекта -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    </properties>
+
+    <!-- Секция build для настройки плагина компилятора -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source> <!-- Укажите версию Java -->
+                    <target>11</target> <!-- Укажите версию Java -->
+                    <encoding>UTF-8</encoding> <!-- Задайте кодировку -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

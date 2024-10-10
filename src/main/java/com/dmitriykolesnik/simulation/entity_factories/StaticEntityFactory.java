@@ -7,7 +7,6 @@ import com.dmitriykolesnik.simulation.util.UtilSimulation;
 
 public abstract class StaticEntityFactory <T extends Entity> implements EntityFactory<T> {
     protected abstract int getMinFoodValue();
-
     protected abstract int getMaxFoodValue();
 
     @Override

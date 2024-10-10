@@ -1,8 +1,5 @@
 package com.dmitriykolesnik.simulation.util;
 
-import com.dmitriykolesnik.simulation.Coordinates;
-import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
-import com.dmitriykolesnik.simulation.world_map.WorldMap;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -38,9 +35,4 @@ public class UtilSimulation {
 
         return number;
     }
-
-
-
-
-
 }

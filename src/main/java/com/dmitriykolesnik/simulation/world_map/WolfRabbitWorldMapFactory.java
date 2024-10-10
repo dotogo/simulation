@@ -2,15 +2,15 @@ package com.dmitriykolesnik.simulation.world_map;
 
 import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.Entity;
+import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.rodents.Mouse;
 import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.rodents.Rabbit;
+import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Cat;
 import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Wolf;
 import com.dmitriykolesnik.simulation.entities.static_entities.Grass;
 import com.dmitriykolesnik.simulation.entities.static_entities.Rock;
 import com.dmitriykolesnik.simulation.entities.static_entities.Tree;
 import com.dmitriykolesnik.simulation.entity_factories.EntityFactory;
-import com.dmitriykolesnik.simulation.entity_factories.impl.GrassFactoryRandom;
-import com.dmitriykolesnik.simulation.entity_factories.impl.RabbitFactoryRandom;
-import com.dmitriykolesnik.simulation.entity_factories.impl.WolfFactoryRandom;
+import com.dmitriykolesnik.simulation.entity_factories.impl.*;
 
 import java.util.Random;
 
@@ -22,6 +22,8 @@ public class WolfRabbitWorldMapFactory implements WorldMapFactory{
 
     private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactoryRandom();
     private final EntityFactory<Wolf> wolfFactory = new WolfFactoryRandom();
+    private final EntityFactory<Mouse> mouseFactoryRandom = new MouseFactoryRandom();
+    private final EntityFactory<Cat> catFactoryRandom = new CatFactoryRandom();
     private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
 
     public WolfRabbitWorldMapFactory(int xSize, int ySize) {
@@ -58,12 +60,21 @@ public class WolfRabbitWorldMapFactory implements WorldMapFactory{
 
 
 
-                if (choice <= 10 ) {
+                if (choice <= 7 ) {
                     Entity rabbit = rabbitFactory.create();
                     worldMap.setEntity(coordinates, rabbit);
                 }
+                if (choice > 7 && choice <= 14) {
+                    Entity mouse = mouseFactoryRandom.create();
+                    worldMap.setEntity(coordinates, mouse);
+                }
 
-                if (choice > 10 && choice <= 20) {
+                if (choice > 14 && choice <= 17) {
+                    Entity cat = catFactoryRandom.create();
+                    worldMap.setEntity(coordinates, cat);
+                }
+
+                if (choice > 17 && choice <= 20) {
                     Entity tree = new Tree();
                     worldMap.setEntity(coordinates, tree);
                 }

@@ -3,9 +3,9 @@ package com.dmitriykolesnik.simulation.util;
 
 public class GameSettings {
     private static final int MIN_HORIZONTAL_WORLD_SIZE = 5;
-    private static final int MAN_HORIZONTAL_WORLD_SIZE = 50;
+    private static final int MAX_HORIZONTAL_WORLD_SIZE = 50;
     private static final int MIN_VERTICAL_WORLD_SIZE = 5;
-    private static final int MAN_VERTICAL_WORLD_SIZE = 35;
+    private static final int MAX_VERTICAL_WORLD_SIZE = 35;
     private static final int MIN_HEALTH_POINTS = 0;
     private static final int MAX_HEALTH_POINTS = 100;
     private static final int MIN_SPEED = 1;
@@ -32,6 +32,31 @@ public class GameSettings {
     }
 
 //    public static boolean checkWorldSize(int horizontalSize, int verticalSize) {
-//        if (horizontalSize >= MIN_HORIZONTAL_WORLD_SIZE && )
+//        boolean checkHorizontalSize =  (horizontalSize >= MIN_HORIZONTAL_WORLD_SIZE && horizontalSize <= MAX_HORIZONTAL_WORLD_SIZE);
+//        boolean checkVerticalSize =  (verticalSize >= MIN_VERTICAL_WORLD_SIZE && verticalSize <= MAX_VERTICAL_WORLD_SIZE);
+//        return checkHorizontalSize && checkVerticalSize;
 //    }
+
+    public static int getMinHorizontalWorldSize() {
+        return MIN_HORIZONTAL_WORLD_SIZE;
+    }
+
+    public static int getMaxHorizontalWorldSize() {
+        return MAX_HORIZONTAL_WORLD_SIZE;
+    }
+
+    public static int getMinVerticalWorldSize() {
+        return MIN_VERTICAL_WORLD_SIZE;
+    }
+
+    public static int getMaxVerticalWorldSize() {
+        return MAX_VERTICAL_WORLD_SIZE;
+    }
+
+
+
+
+
+
+
 }

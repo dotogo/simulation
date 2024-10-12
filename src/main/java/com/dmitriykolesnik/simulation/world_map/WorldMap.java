@@ -41,7 +41,7 @@ public class WorldMap {
     }
 
     public Entity getEntity(Coordinates coordinates) {
-        if (isCellContainingEntity(coordinates)) {
+        if (isNotEmptyCell(coordinates)) {
             return entities.get(coordinates);
         } else {
             throw new IllegalArgumentException("Getting entity failed");
@@ -49,16 +49,16 @@ public class WorldMap {
     }
 
     public void removeEntity(Coordinates coordinates) {
-        if (isCellContainingEntity(coordinates)) {
+        if (isNotEmptyCell(coordinates)) {
             entities.remove(coordinates);
         } else {
             throw new IllegalArgumentException("Removing entity failed");
         }
     }
 
-    public void removeEntity(Entity entity) {
-
-    }
+//    public void removeEntity(Entity entity) {
+//
+//    }
 
 
     public void moveEntity(Coordinates from, Coordinates to) {
@@ -68,7 +68,7 @@ public class WorldMap {
         setEntity(to, entity);
     }
 
-    public boolean isCellContainingEntity(Coordinates coordinates) {
+    public boolean isNotEmptyCell(Coordinates coordinates) {
         return entities.containsKey(coordinates);
     }
 
@@ -76,6 +76,10 @@ public class WorldMap {
         boolean checkX = (coordinates.getX() >= 0) && (coordinates.getX() < xSize);
         boolean checkY = (coordinates.getY() >= 0) && (coordinates.getY() < ySize);
         return checkX && checkY;
+    }
+
+    public boolean isContainEntity(Entity entity) {
+        return entities.containsValue(entity);
     }
 
     public void moveAllCreatures() {
@@ -90,7 +94,7 @@ public class WorldMap {
         }
 
         for (Coordinates temp : allCoordinates) {
-            if (this.isCellContainingEntity(temp)) {
+            if (this.isNotEmptyCell(temp)) {
                 Entity entity = entities.get(temp);
 
                 if (entity instanceof Creature) {

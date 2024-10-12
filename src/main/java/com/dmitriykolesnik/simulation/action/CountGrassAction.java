@@ -26,7 +26,7 @@ public class CountGrassAction extends TurnAction{
                 Coordinates coordinates = new Coordinates(x, y);
                 Entity entity = null;
 
-                if (worldMap.isCellContainingEntity(coordinates)) {
+                if (worldMap.isNotEmptyCell(coordinates)) {
                     entity = worldMap.getEntity(coordinates);
                 }
 

@@ -12,7 +12,7 @@ public class ConsoleWorldMapRenderer implements WorldMapRenderer {
             for (int x = 0; x < worldMap.getXsize(); x++) {
                 Coordinates coordinates = new Coordinates(x, y);
 
-                if (!worldMap.isCellContainingEntity(coordinates)) {
+                if (!worldMap.isNotEmptyCell(coordinates)) {
                     line.append(" .. ");
 
                 } else {

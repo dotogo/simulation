@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/MoveAllCreaturesAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/SetWorldSizeAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/SetWorldSizeAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/StaticEntityFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/StaticEntityFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/UtilSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/UtilSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WolfRabbitWorldMapFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WolfRabbitWorldMapFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/MovementLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/MovementLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/CountGrassAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/CountGrassAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/InitAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/InitAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/TurnAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/TurnAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/BreadthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/BreadthFirstSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/view/ConsoleWorldMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/view/ConsoleWorldMapRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

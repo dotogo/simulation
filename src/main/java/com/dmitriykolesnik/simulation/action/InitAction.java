@@ -1,4 +1,4 @@
 package com.dmitriykolesnik.simulation.action;
 
-public abstract class InitAction extends Actions {
+public abstract class InitAction implements Actions {
 }

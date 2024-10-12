@@ -38,9 +38,8 @@ public class Simulation {
 
     // просимулировать и отрендерить один ход
     public void nextTurn() {
-        performTurnActions();
         mapRender.render(worldMap);
-        worldMap.moveAllCreatures();
+        performTurnActions();
         turnCounter++;
     }
 
@@ -265,7 +264,8 @@ public class Simulation {
 
 
     private void initializeInitActions() {
-        initActions = Arrays.asList(new WelcomeAction(), new SetWorldSizeAction());
+        initActions = Arrays.asList(new WelcomeAction(),
+                                    new SetWorldSizeAction());
     }
 
     private void performInitActions() {
@@ -282,7 +282,8 @@ public class Simulation {
     }
 
     private void initializeTurnActions() {
-        turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap)));
+        turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap),
+                                              new MoveAllCreaturesAction(worldMap)));
     }
 
     private void performTurnActions() {

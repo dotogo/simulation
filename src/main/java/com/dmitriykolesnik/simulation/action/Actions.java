@@ -1,6 +1,6 @@
 package com.dmitriykolesnik.simulation.action;
 
 
-public abstract class Actions {
-    public abstract void perform();
+public interface Actions {
+    void perform();
 }

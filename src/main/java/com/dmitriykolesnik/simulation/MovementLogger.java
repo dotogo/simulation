@@ -110,7 +110,7 @@ public class MovementLogger {
 
             System.out.println("\nBefore meal: \n" +
                     SPACE + nonPredatorClassName + COORDINATES + nonPredatorCoordinates + SPACE +
-                    SPACE + nonPredatorClassName + ID + nonPredator.getId() + SPACE +
+                    SPACE + nonPredatorClassName + ID + nonPredator.getId() +
                     SPACE + SPEED + nonPredator.getSpeed() + SPACE +
                     SPACE + nonPredatorClassName + HEALTH + nonPredator.getHealthPoints() + "\n" +
                     SPACE + ediblePlantClassName + COORDINATES + targetCoordinates + SPACE +

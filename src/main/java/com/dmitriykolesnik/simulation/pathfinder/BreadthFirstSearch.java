@@ -48,7 +48,7 @@ public class BreadthFirstSearch implements PathFinder{
                 }
 
                 checked.add(coordinates);
-                if (!worldMap.isCellContainingEntity(coordinates)) {
+                if (!worldMap.isNotEmptyCell(coordinates)) {
                     queue.add(coordinates);
 
                     levelMap.put(coordinates, currentLevel + 1);
@@ -100,7 +100,7 @@ public class BreadthFirstSearch implements PathFinder{
     }
 
     private boolean hasTargetEntity(Coordinates coordinates, Class<?> classToBeFound) {
-        if (worldMap.isCellContainingEntity(coordinates)) {
+        if (worldMap.isNotEmptyCell(coordinates)) {
             Entity entity = worldMap.getEntity(coordinates);
             return checkEntityClass(entity, classToBeFound);
         }

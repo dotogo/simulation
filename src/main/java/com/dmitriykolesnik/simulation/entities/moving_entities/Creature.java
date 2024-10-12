@@ -38,7 +38,7 @@ public abstract class Creature extends Entity {
 
 
     protected boolean isFoodWasFound(WorldMap worldMap, Coordinates targetCoordinates, Class<?> clazz) {
-        if (worldMap.isCellContainingEntity(targetCoordinates)) {
+        if (worldMap.isNotEmptyCell(targetCoordinates)) {
             Entity entity = worldMap.getEntity(targetCoordinates);
             Class<?> entityClass = entity.getClass();
             return clazz.isAssignableFrom(entityClass);

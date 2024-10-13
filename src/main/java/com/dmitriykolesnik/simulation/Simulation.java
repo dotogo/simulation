@@ -43,63 +43,6 @@ public class Simulation {
         turnCounter++;
     }
 
-//// рабочий вариант, но с предупреждением "Non-atomic operation on volatile field 'isPaused' "
-//    public void startSimulation() {
-//        performInitActions();
-//        createWorldMap();
-//
-//        // Start a thread to process keyboard input
-//        new Thread(this::pauseSimulation).start();
-//
-//        if (turnCounter == 0) {
-//            System.out.println("\nThe Simulation is starting.");
-//        }
-//
-//        // Main Simulation loop
-//        while (!isStopped) {
-//            if (!isPaused) {
-//                if (turnCounter != 0) {
-//                    System.out.println("Next Turn #" + turnCounter);
-//                }
-//                nextTurn();
-//            }
-//
-//            try {
-//                Thread.sleep(1000); // Ждем 100 мс
-//            } catch (InterruptedException e) {
-//                Thread.currentThread().interrupt();
-//            }
-//        }
-//        System.out.println("Simulation finished.");
-//    }
-//
-//    // приостановить бесконечный цикл симуляции и рендеринга
-//    public void pauseSimulation() {
-//        while (!isStopped) {
-//            try {
-//                int input = System.in.read(); // Считываем одиночный символ
-//
-//                if (input == 's') {
-//                    isPaused = !isPaused;
-//                    if (isPaused) {
-//                        System.out.println("Simulation paused.");
-//                    } else {
-//                        System.out.println("Simulation resumed.");
-//                    }
-//                } else if (input == 'q') {
-//                    isStopped = true;
-//                    System.out.println("Simulation stopped.");
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
-
-
-
-
     public void startSimulation() {
         initializeInitActions();
         performInitActions();
@@ -156,11 +99,6 @@ public class Simulation {
             }
         }
     }
-
-
-
-
-
 
 
 

@@ -3,6 +3,7 @@ package com.dmitriykolesnik.simulation.entities.moving_entities.predators;
 import com.dmitriykolesnik.simulation.MovementLogger;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.Coordinates;
+import com.dmitriykolesnik.simulation.entities.moving_entities.CreatureLifecycleManager;
 import com.dmitriykolesnik.simulation.pathfinder.BreadthFirstSearch;
 import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
@@ -27,10 +28,12 @@ public abstract class Predator extends Creature {
 
     public void makeMove(WorldMap worldMap) {
         PathFinder pathFinder = new BreadthFirstSearch(worldMap);
+        CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
+
         Coordinates entityCoordinates = worldMap.getEntityCoordinates(this);
         List<Coordinates> pathToTarget = pathFinder.find(entityCoordinates, this.getSpeed(), getTypeOfFood());
         Coordinates targetCoordinates = pathToTarget.get(pathToTarget.size() - 1);
-        boolean isTargetFound = isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
+        boolean isTargetFound = creatureLifecycleManager.isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
 
         MovementLogger logger = new MovementLogger(worldMap);
         boolean isPrintEnable = true;
@@ -44,8 +47,8 @@ public abstract class Predator extends Creature {
         this.setHealthPoints(this.getHealthPoints() - getReduceHealthPointsIfFoodNotFound());
         boolean isCreatureDied = this.getHealthPoints() <= 0;
 
-        removeDeadCreature(worldMap,isCreatureDied);
-        moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
+        creatureLifecycleManager.removeDeadCreature(worldMap, this, isCreatureDied);
+        creatureLifecycleManager.moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
 
         logger.printPreyNotFound(this, isCreatureDied, isPrintEnable);
         logger.printCreatureDead(this, isCreatureDied, isPrintEnable);

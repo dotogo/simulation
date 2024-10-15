@@ -5,6 +5,9 @@ import com.dmitriykolesnik.simulation.action.SetWorldSizeAction;
 import com.dmitriykolesnik.simulation.action.WelcomeAction;
 import com.dmitriykolesnik.simulation.menu.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) {
         Menu menu = new Menu("Main menu", "Make selection", "Error. Try again");
@@ -16,9 +19,8 @@ public class Test {
         while (true) {
             menu.show();
             menu.execute();
-        }
 
-//        menu.show();
-//        menu.execute();
+
+        }
     }
 }

@@ -82,33 +82,33 @@ public class WorldMap {
         return entities.containsValue(entity);
     }
 
-    public void moveAllCreatures() {
-        Set<Coordinates> allCoordinates = new HashSet<>();
-        Set<Creature> creaturesToMove = new HashSet<>();
-
-        for (int y = this.getYsize() - 1; y >= 0; y--) {
-            for (int x = 0; x < this.getXsize(); x++) {
-                Coordinates coordinates = new Coordinates(x, y);
-                allCoordinates.add(coordinates);
-            }
-        }
-
-        for (Coordinates temp : allCoordinates) {
-            if (this.isNotEmptyCell(temp)) {
-                Entity entity = entities.get(temp);
-
-                if (entity instanceof Creature) {
-                    creaturesToMove.add((Creature) entity);
-                }
-            }
-        }
-
-        for (Creature creature : creaturesToMove) {
-            if (entities.containsValue(creature)){
-                creature.makeMove(this);
-            }
-        }
-    }
+//    public void moveAllCreatures() {
+//        Set<Coordinates> allCoordinates = new HashSet<>();
+//        Set<Creature> creaturesToMove = new HashSet<>();
+//
+//        for (int y = this.getYsize() - 1; y >= 0; y--) {
+//            for (int x = 0; x < this.getXsize(); x++) {
+//                Coordinates coordinates = new Coordinates(x, y);
+//                allCoordinates.add(coordinates);
+//            }
+//        }
+//
+//        for (Coordinates temp : allCoordinates) {
+//            if (this.isNotEmptyCell(temp)) {
+//                Entity entity = entities.get(temp);
+//
+//                if (entity instanceof Creature) {
+//                    creaturesToMove.add((Creature) entity);
+//                }
+//            }
+//        }
+//
+//        for (Creature creature : creaturesToMove) {
+//            if (entities.containsValue(creature)){
+//                creature.makeMove(this);
+//            }
+//        }
+//    }
 
 
     public Coordinates getEntityCoordinates(Entity entity) {

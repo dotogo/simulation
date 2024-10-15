@@ -36,33 +36,6 @@ public abstract class Creature extends Entity {
         this.speed = speed;
     }
 
-
-    protected boolean isFoodWasFound(WorldMap worldMap, Coordinates targetCoordinates, Class<?> clazz) {
-        if (worldMap.isNotEmptyCell(targetCoordinates)) {
-            Entity entity = worldMap.getEntity(targetCoordinates);
-            Class<?> entityClass = entity.getClass();
-            return clazz.isAssignableFrom(entityClass);
-        }
-        return false;
-    }
-
-    protected void removeDeadCreature(WorldMap worldMap, boolean isCreatureDied) {
-        if (isCreatureDied) {
-            Coordinates coordinates = worldMap.getEntityCoordinates(this);
-            worldMap.removeEntity(coordinates);
-        }
-    }
-
-    protected void moveLivingCreature(WorldMap worldMap, List<Coordinates> pathToTarget,
-                                    Coordinates entityCoordinates, boolean isCreatureDied) {
-        if (!isCreatureDied) {
-            int randomNumberFromPath = UtilSimulation.getRandomNumberBetween(0, pathToTarget.size() - 1);
-            Coordinates randomCoordinatesFromPath = pathToTarget.get(randomNumberFromPath);
-
-            worldMap.moveEntity(entityCoordinates, randomCoordinatesFromPath);
-        }
-    }
-
     public abstract void makeMove(WorldMap worldMap);
     protected abstract int getMaxAvailableHealthPoints();
     protected abstract int getReduceHealthPointsIfFoodNotFound();

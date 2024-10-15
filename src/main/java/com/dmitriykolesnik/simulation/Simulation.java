@@ -15,6 +15,7 @@ public class Simulation {
     private static final int SLEEP_MILLISECONDS_AFTER_STARTING_TEXT = 3000;
     private WorldMap worldMap;
     private int turnCounter;
+    private boolean isPrintLogging;
     private volatile boolean isStopped = false;
     //private volatile boolean isPaused = false;
     private AtomicBoolean isPaused = new AtomicBoolean(false);
@@ -35,6 +36,10 @@ public class Simulation {
     private static final String ENTER_TEXT = " and then ENTER";
     private static final String RESUME_TEXT = "To resume, press 's'";
 
+    public Simulation(WorldMap worldMap, boolean isPrintLogging) {
+        this.worldMap = worldMap;
+        this.isPrintLogging = isPrintLogging;
+    }
 
     // просимулировать и отрендерить один ход
     public void nextTurn() {
@@ -43,14 +48,14 @@ public class Simulation {
         turnCounter++;
     }
 
-    public void startSimulation() {
+    public void start() {
         initializeInitActions();
         performInitActions();
-        createWorldMap();
+        //createWorldMap();
         initializeTurnActions();
 
         // Start a thread to process keyboard input
-        new Thread(this::pauseSimulation).start();
+        new Thread(this::pause).start();
 
         if (turnCounter == 0) {
             int waitSecondsAfterStartingText = SLEEP_MILLISECONDS_AFTER_STARTING_TEXT / 1000;
@@ -72,7 +77,7 @@ public class Simulation {
     }
 
     // Приостановить бесконечный цикл симуляции и рендеринга
-    public void pauseSimulation() {
+    public void pause() {
         while (!isStopped) {
             try {
                 int input = System.in.read(); // Считываем одиночный символ
@@ -202,8 +207,8 @@ public class Simulation {
 
 
     private void initializeInitActions() {
-        initActions = Arrays.asList(new WelcomeAction(),
-                                    new SetWorldSizeAction());
+        initActions = Arrays.asList(new WelcomeAction()
+                                    /*new SetWorldSizeAction()*/);
     }
 
     private void performInitActions() {
@@ -212,16 +217,16 @@ public class Simulation {
         }
     }
 
-    private void createWorldMap() {
-        int x_Size = ActionsDataSingleton.getInstance().getX_SizeWorldMap();
-        int y_Size = ActionsDataSingleton.getInstance().getY_SizeWorldMap();
-        worldMapFactory = new WolfRabbitWorldMapFactory(x_Size, y_Size);
-        worldMap = worldMapFactory.create();
-    }
+//    private void createWorldMap() {
+//        int x_Size = ActionsDataSingleton.getInstance().getX_SizeWorldMap();
+//        int y_Size = ActionsDataSingleton.getInstance().getY_SizeWorldMap();
+//        worldMapFactory = new WolfRabbitWorldMapFactory(x_Size, y_Size);
+//        worldMap = worldMapFactory.create();
+//    }
 
     private void initializeTurnActions() {
         turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap),
-                                              new MoveAllCreaturesAction(worldMap)));
+                                              new MoveAllCreaturesAction(worldMap, isPrintLogging)));
     }
 
     private void performTurnActions() {

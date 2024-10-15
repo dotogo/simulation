@@ -26,7 +26,7 @@ public abstract class Predator extends Creature {
         return attackForce;
     }
 
-    public void makeMove(WorldMap worldMap) {
+    public void makeMove(WorldMap worldMap, boolean isPrintLogging) {
         PathFinder pathFinder = new BreadthFirstSearch(worldMap);
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
 
@@ -36,10 +36,9 @@ public abstract class Predator extends Creature {
         boolean isTargetFound = creatureLifecycleManager.isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
 
         MovementLogger logger = new MovementLogger(worldMap);
-        boolean isPrintEnable = true;
 
         if (isTargetFound) {
-            attackPrey(worldMap, entityCoordinates, pathToTarget, targetCoordinates, logger, isPrintEnable);
+            attackPrey(worldMap, entityCoordinates, pathToTarget, targetCoordinates, logger, isPrintLogging);
             return;
         }
 
@@ -50,8 +49,8 @@ public abstract class Predator extends Creature {
         creatureLifecycleManager.removeDeadCreature(worldMap, this, isCreatureDied);
         creatureLifecycleManager.moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
 
-        logger.printPreyNotFound(this, isCreatureDied, isPrintEnable);
-        logger.printCreatureDead(this, isCreatureDied, isPrintEnable);
+        logger.printPreyNotFound(this, isCreatureDied, isPrintLogging);
+        logger.printCreatureDead(this, isCreatureDied, isPrintLogging);
     }
 
 

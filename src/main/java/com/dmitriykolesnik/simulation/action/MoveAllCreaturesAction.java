@@ -5,18 +5,21 @@ import com.dmitriykolesnik.simulation.entities.Entity;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoveAllCreaturesAction extends TurnAction{
+    boolean isPrintLogging;
 
-    public MoveAllCreaturesAction(WorldMap worldMap) {
+    public MoveAllCreaturesAction(WorldMap worldMap, boolean isPrintLogging) {
         super(worldMap);
+        this.isPrintLogging = isPrintLogging;
     }
 
     @Override
     public void perform() {
-        Set<Creature> creaturesToMove = new HashSet<>();
+        //Set<Creature> creaturesToMove = new HashSet<>();
+        List<Creature> creaturesToMove = new ArrayList<>();
 
         for (int y = worldMap.getYsize() - 1; y >= 0; y--) {
             for (int x = 0; x < worldMap.getXsize(); x++) {
@@ -32,7 +35,7 @@ public class MoveAllCreaturesAction extends TurnAction{
 
         for (Creature creature : creaturesToMove) {
             if (worldMap.isContainEntity(creature)) {
-                creature.makeMove(worldMap);
+                creature.makeMove(worldMap, isPrintLogging);
             }
         }
     }

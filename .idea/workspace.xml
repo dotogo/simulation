@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/SimulationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/CreatureLifecycleManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/SmallWorldMapFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/MoveAllCreaturesAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/MoveAllCreaturesAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/NonPredator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/NonPredator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Predator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Predator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/for_something/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/for_something/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

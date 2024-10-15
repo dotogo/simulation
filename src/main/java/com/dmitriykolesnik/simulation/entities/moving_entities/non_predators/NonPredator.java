@@ -20,7 +20,7 @@ public abstract class NonPredator extends Creature {
     }
 
     @Override
-    public void makeMove(WorldMap worldMap) {
+    public void makeMove(WorldMap worldMap, boolean isPrintLogging) {
         PathFinder pathFinder = new BreadthFirstSearch(worldMap);
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
         Coordinates entityCoordinates = worldMap.getEntityCoordinates(this);
@@ -29,10 +29,9 @@ public abstract class NonPredator extends Creature {
         boolean isTargetFound = creatureLifecycleManager.isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
 
         MovementLogger logger = new MovementLogger(worldMap);
-        boolean isPrintEnable = true;
 
         if (isTargetFound) {
-            eatFood(worldMap, entityCoordinates, pathToTarget,targetCoordinates, getMaxAvailableHealthPoints(), logger, isPrintEnable);
+            eatFood(worldMap, entityCoordinates, pathToTarget,targetCoordinates, getMaxAvailableHealthPoints(), logger, isPrintLogging);
             return;
         }
 
@@ -43,8 +42,8 @@ public abstract class NonPredator extends Creature {
         creatureLifecycleManager.removeDeadCreature(worldMap, this,  isCreatureDied);
         creatureLifecycleManager.moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
 
-        logger.printCreatureDead(this, isCreatureDied, isPrintEnable);
-        logger.printFoodNotFound(this, isCreatureDied, isPrintEnable);
+        logger.printCreatureDead(this, isCreatureDied, isPrintLogging);
+        logger.printFoodNotFound(this, isCreatureDied, isPrintLogging);
     }
 
     protected void eatFood(WorldMap worldMap, Coordinates entityCoordinates, List<Coordinates> pathToTarget,

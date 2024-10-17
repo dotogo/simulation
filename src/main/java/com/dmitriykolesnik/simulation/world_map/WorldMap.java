@@ -2,7 +2,6 @@ package com.dmitriykolesnik.simulation.world_map;
 
 import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.Entity;
-import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.exceptions.EntityNotFoundException;
 
 import java.util.*;
@@ -136,6 +135,17 @@ public class WorldMap {
 //                .findFirst() // получаем первый элемент, соответствующий условию
 //                .orElseThrow(() -> new EntityNotFoundException("The entity not found in the WorldMap"));
 //    }
+
+    public List<Coordinates> getAllCoordinatesList() {
+        List<Coordinates> coordinates = new ArrayList<>();
+
+        for (int i = 0; i < this.xSize; i++) {
+            for (int j = 0; j < this.ySize; j++) {
+                coordinates.add(new Coordinates(i, j));
+            }
+        }
+        return coordinates;
+    }
 
 
 }

@@ -208,7 +208,7 @@ public class Simulation {
 
     private void initializeInitActions() {
         initActions = Arrays.asList(new WelcomeAction()
-                                    /*new SetWorldSizeAction()*/);
+                                    /*new InputWorldSizeAction()*/);
     }
 
     private void performInitActions() {

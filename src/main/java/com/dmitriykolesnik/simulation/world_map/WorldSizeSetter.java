@@ -1,66 +1,75 @@
-package com.dmitriykolesnik.simulation.action;
+package com.dmitriykolesnik.simulation.world_map;
 
 import com.dmitriykolesnik.simulation.util.GameSettings;
 import com.dmitriykolesnik.simulation.util.UtilSimulation;
 
-
-public class SetWorldSizeAction extends InitAction {
+public class WorldSizeSetter {
     private static final String INPUT_ERROR = "You have entered a number outside the valid range.";
-    private static final String ENTER_X_SIZE;
-    private static final String ENTER_Y_SIZE;
+    private static final String ENTER_HORIZONTAL_SIZE;
+    private static final String ENTER_VERTICAL_SIZE;
+    private int horizontalSize;
+    private int verticalSize;
+
     static {
-        ENTER_X_SIZE = "Specify the horizontal size of the WorldMap (MIN = " + GameSettings.getMinHorizontalWorldSize() +
+        ENTER_HORIZONTAL_SIZE = "Specify the horizontal size of the WorldMap (MIN = " + GameSettings.getMinHorizontalWorldSize() +
                 ", MAX = " + GameSettings.getMaxHorizontalWorldSize() + ")";
-        ENTER_Y_SIZE = "Specify the vertical size of the WorldMap (MIN = " + GameSettings.getMinVerticalWorldSize() +
+        ENTER_VERTICAL_SIZE = "Specify the vertical size of the WorldMap (MIN = " + GameSettings.getMinVerticalWorldSize() +
                 ", MAX = " + GameSettings.getMaxVerticalWorldSize() + ")";
     }
 
-    @Override
     public void perform() {
-        System.out.println(ENTER_X_SIZE);
+        System.out.println(ENTER_HORIZONTAL_SIZE);
         setHorizontalSize();
 
         System.out.println();
 
-        System.out.println(ENTER_Y_SIZE);
+        System.out.println(ENTER_VERTICAL_SIZE);
         setVerticalSize();
     }
 
-    private static void setHorizontalSize() {
+    private void setHorizontalSize() {
         while (true) {
             int number = UtilSimulation.getPositiveIntFromKeyboard();
 
             if(checkHorizontalWorldSize(number)) {
-                ActionsDataSingleton.getInstance().setX_SizeWorldMap(number);
+                horizontalSize = number;
                 break;
             }
             printInputError();
         }
     }
 
-    private static void setVerticalSize() {
+    private void setVerticalSize() {
         while (true) {
             int number = UtilSimulation.getPositiveIntFromKeyboard();
 
             if(checkVerticalWorldSize(number)) {
-                ActionsDataSingleton.getInstance().setY_SizeWorldMap(number);
+                verticalSize = number;
                 break;
             }
             printInputError();
         }
     }
 
-    private static boolean checkHorizontalWorldSize(int horizontalSize) {
+    public int getHorizontalSize() {
+        return horizontalSize;
+    }
+
+    public int getVerticalSize() {
+        return verticalSize;
+    }
+
+    private boolean checkHorizontalWorldSize(int horizontalSize) {
         return (horizontalSize >= GameSettings.getMinHorizontalWorldSize()) &&
                 (horizontalSize <= GameSettings.getMaxHorizontalWorldSize());
     }
 
-    private static boolean checkVerticalWorldSize(int verticalSize) {
+    private boolean checkVerticalWorldSize(int verticalSize) {
         return (verticalSize >= GameSettings.getMinVerticalWorldSize()) &&
                 (verticalSize <= GameSettings.getMaxHorizontalWorldSize());
     }
 
-    private static void printInputError() {
+    private void printInputError() {
         System.out.println(INPUT_ERROR);
     }
 }

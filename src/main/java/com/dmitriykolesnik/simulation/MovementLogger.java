@@ -151,7 +151,7 @@ public class MovementLogger {
     }
 
     public void printCreatureDead(Creature creature, boolean isCreatureDied, boolean isPrintEnable) {
-        if (isCreatureDied) {
+        if (isCreatureDied && isPrintEnable) {
             String creatureClassName = creature.getClass().getSimpleName();
             System.out.println("No food was found, that's the end. \n" +
                     creatureClassName + ID + creature.getId() + " is dead. \n");

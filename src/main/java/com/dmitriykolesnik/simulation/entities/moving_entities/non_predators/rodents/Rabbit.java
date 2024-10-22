@@ -16,6 +16,11 @@ public class Rabbit extends Rodent implements PreyForMediumPredators, PreyForBig
     }
 
     @Override
+    public EntityType getEntityType() {
+        return EntityType.RABBIT;
+    }
+
+    @Override
     protected int getMaxAvailableHealthPoints() {
         return MAX_AVAILABLE_HEALTH_POINTS;
     }
@@ -30,8 +35,4 @@ public class Rabbit extends Rodent implements PreyForMediumPredators, PreyForBig
         return TYPE_OF_FOOD;
     }
 
-    @Override
-    public EntityType getEntityType() {
-        return EntityType.RABBIT;
-    }
 }

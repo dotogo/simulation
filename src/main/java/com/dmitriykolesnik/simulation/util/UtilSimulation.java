@@ -22,7 +22,7 @@ public class UtilSimulation {
         int number;
 
         while (true) {
-            System.out.print("Enter a positive integer: ");
+            System.out.print("Enter a number: ");
             input = scanner.nextLine().trim();
 
             if (input.matches("\\d+")) {
@@ -32,6 +32,7 @@ public class UtilSimulation {
                 System.out.println("This is not a positive integer. Try again.");
             }
         }
+        System.out.println();
 
         return number;
     }

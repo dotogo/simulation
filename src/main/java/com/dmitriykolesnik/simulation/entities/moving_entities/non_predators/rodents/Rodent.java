@@ -7,7 +7,4 @@ public abstract class Rodent extends NonPredator {
         super(healthPoints, speed);
     }
 
-    public Rodent() {
-
-    }
 }

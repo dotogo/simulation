@@ -21,8 +21,8 @@ import java.util.stream.Stream;
 
 
 public class SmallWorldMapFactory implements WorldMapFactory {
-    private static final int RABBIT_AMOUNT = 7;
-    private static final int WOLF_AMOUNT = 2;
+    private static final int RABBIT_AMOUNT = 4;
+    private static final int WOLF_AMOUNT = 1;
     private static final int GRASS_AMOUNT = 25;
     private static final int GRAIN_AMOUNT = 20;
     private static final int TREE_AMOUNT = 15;
@@ -58,20 +58,4 @@ public class SmallWorldMapFactory implements WorldMapFactory {
         }
         return worldMap;
     }
-
-//    private List<Entity> getEntitiesToBePopulated(EntityFactory<? extends Entity> entityFactory, int amount) {
-//        List<Entity> entities = new ArrayList<>();
-//        for (int i = 0; i < amount; i++) {
-//            Entity entity = entityFactory.create();
-//            entities.add(entity);
-//        }
-//        return entities;
-//    }
-//    private List<Entity> getEntitiesToBePopulated(Entity entity, int amount) {
-//        List<Entity> entities = new ArrayList<>();
-//        for (int i = 0; i < amount; i++) {
-//            entities.add(entity);
-//        }
-//        return entities;
-//    }
 }

@@ -2,10 +2,12 @@ package com.dmitriykolesnik.simulation.util;
 
 
 public class GameSettings {
-    private static final int MIN_HORIZONTAL_WORLD_SIZE = 5;
+    private static final int MIN_HORIZONTAL_WORLD_SIZE = 10;
     private static final int MAX_HORIZONTAL_WORLD_SIZE = 50;
-    private static final int MIN_VERTICAL_WORLD_SIZE = 5;
+    private static final int MIN_VERTICAL_WORLD_SIZE = 10;
     private static final int MAX_VERTICAL_WORLD_SIZE = 35;
+    private static final int MIN_OCCUPANCY_RATE = 5;
+    private static final int MAX_OCCUPANCY_RATE = 30;
     private static final int MIN_HEALTH_POINTS = 0;
     private static final int MAX_HEALTH_POINTS = 100;
     private static final int MIN_SPEED = 1;
@@ -53,10 +55,13 @@ public class GameSettings {
         return MAX_VERTICAL_WORLD_SIZE;
     }
 
+    public static int getMinOccupancyRate() {
+        return MIN_OCCUPANCY_RATE;
+    }
 
-
-
-
+    public static int getMaxOccupancyRate() {
+        return MAX_OCCUPANCY_RATE;
+    }
 
 
 }

@@ -34,4 +34,5 @@ public class CreatureLifecycleManager {
             worldMap.moveEntity(entityCoordinates, randomCoordinatesFromPath);
         }
     }
+
 }

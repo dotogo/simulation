@@ -13,16 +13,16 @@ public enum EntityType {
 
     GRASS(" \uD83C\uDF31 "),
     //ROCK("\uD83E\uDEA8"),
-    // ROCK(" □ "),
+    //ROCK(" □ "),
     ROCK(" \uD83E\uDDF1 "),
     //ROCK("    "),
     TREE(" \uD83C\uDF33 "),
     RABBIT(" \uD83D\uDC07 "),
     GRAIN(" \uD83C\uDF3E "),
     MOUSE(" \uD83D\uDC01 ");
+    //MOUSE(" \uD83D\uDC2D ");
 
     private final String entitySprite;
-
 
     EntityType(String entitySprite) {
         this.entitySprite = entitySprite;
@@ -31,4 +31,5 @@ public enum EntityType {
     public String getEntitySprite() {
         return entitySprite;
     }
+
 }

@@ -14,6 +14,11 @@ public class Cat extends Predator{
     }
 
     @Override
+    public EntityType getEntityType() {
+        return EntityType.CAT;
+    }
+
+    @Override
     protected int getMaxAvailableHealthPoints() {
         return MAX_AVAILABLE_HEALTH_POINTS;
     }
@@ -28,9 +33,5 @@ public class Cat extends Predator{
         return TYPE_OF_FOOD;
     }
 
-    @Override
-    public EntityType getEntityType() {
-        return EntityType.CAT;
-    }
 }
 

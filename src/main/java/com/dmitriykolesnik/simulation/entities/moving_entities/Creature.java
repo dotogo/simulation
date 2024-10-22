@@ -1,11 +1,8 @@
 package com.dmitriykolesnik.simulation.entities.moving_entities;
 
-import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.Entity;
-import com.dmitriykolesnik.simulation.util.UtilSimulation;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 
-import java.util.List;
 
 public abstract class Creature extends Entity {
     private int healthPoints;
@@ -14,10 +11,6 @@ public abstract class Creature extends Entity {
     public Creature(int healthPoints, int speed) {
         this.healthPoints = healthPoints;
         this.speed = speed;
-    }
-
-    public Creature() {
-
     }
 
     public int getHealthPoints() {

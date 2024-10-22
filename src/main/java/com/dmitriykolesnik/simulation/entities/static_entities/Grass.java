@@ -2,6 +2,7 @@ package com.dmitriykolesnik.simulation.entities.static_entities;
 
 import com.dmitriykolesnik.simulation.entities.EntityType;
 
+
 public class Grass extends EdiblePlant implements FoodForHerbivores, FoodForRodents {
 
     public Grass(int foodValue) {
@@ -12,4 +13,5 @@ public class Grass extends EdiblePlant implements FoodForHerbivores, FoodForRode
     public EntityType getEntityType() {
         return EntityType.GRASS;
     }
+
 }

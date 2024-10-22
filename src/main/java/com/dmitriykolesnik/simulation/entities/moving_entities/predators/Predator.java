@@ -11,15 +11,11 @@ import com.dmitriykolesnik.simulation.world_map.WorldMap;
 import java.util.List;
 
 public abstract class Predator extends Creature {
-    private int attackForce;
+    private final int attackForce;
 
     public Predator(int healthPoints, int speed, int attackForce) {
         super(healthPoints, speed);
         this.attackForce = attackForce;
-    }
-
-    public Predator() {
-
     }
 
     public int getAttackForce() {
@@ -53,7 +49,6 @@ public abstract class Predator extends Creature {
         logger.printCreatureDead(this, isCreatureDied, isPrintLogging);
     }
 
-
     protected void attackPrey(WorldMap worldMap, Coordinates entityCoordinates, List<Coordinates> pathToTarget,
                             Coordinates targetCoordinates, MovementLogger logger, boolean isPrintEnable) {
         Creature prey = (Creature) worldMap.getEntity(targetCoordinates);
@@ -73,6 +68,13 @@ public abstract class Predator extends Creature {
         logger.printPreyStillAlive(prey, isPrintEnable);
     }
 
+    protected void moveCloseToPrey(WorldMap worldMap, List<Coordinates> pathToTarget, Coordinates entityCoordinates) {
+        if (pathToTarget.size() >= 2) {
+            Coordinates destination = pathToTarget.get(pathToTarget.size() - 2);
+            worldMap.moveEntity(entityCoordinates, destination);
+        }
+    }
+
     private void calculateHealthAfterAttack(Creature prey, int maxHealth) {
         int newPreyHealthPoints = Math.max((prey.getHealthPoints() - this.getAttackForce()), 0);
         int preyHealthPointsDecreased = prey.getHealthPoints() - newPreyHealthPoints;
@@ -82,10 +84,4 @@ public abstract class Predator extends Creature {
         this.setHealthPoints(newPredatorHeathPoints);
     }
 
-    protected void moveCloseToPrey(WorldMap worldMap, List<Coordinates> pathToTarget, Coordinates entityCoordinates) {
-        if (pathToTarget.size() >= 2) {
-            Coordinates destination = pathToTarget.get(pathToTarget.size() - 2);
-            worldMap.moveEntity(entityCoordinates, destination);
-        }
-    }
 }

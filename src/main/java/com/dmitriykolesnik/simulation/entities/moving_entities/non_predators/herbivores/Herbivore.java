@@ -8,8 +8,4 @@ public abstract class Herbivore extends NonPredator {
         super(healthPoints, speed);
     }
 
-    public Herbivore() {
-
-    }
-
 }

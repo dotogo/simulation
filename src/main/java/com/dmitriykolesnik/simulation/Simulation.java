@@ -115,8 +115,8 @@ public class Simulation {
 //            action.perform();
 //        }
 //
-//        int x_Size = ActionsDataSingleton.getInstance().getX_SizeWorldMap();
-//        int y_Size = ActionsDataSingleton.getInstance().getY_SizeWorldMap();
+//        int x_Size = 15;
+//        int y_Size = 15;
 //
 //
 //        worldMapFactory = new WolfRabbitWorldMapFactory(x_Size, y_Size);
@@ -207,8 +207,7 @@ public class Simulation {
 
 
     private void initializeInitActions() {
-        initActions = Arrays.asList(new WelcomeAction()
-                                    /*new InputWorldSizeAction()*/);
+        initActions = Arrays.asList(new WelcomeAction());
     }
 
     private void performInitActions() {
@@ -216,13 +215,6 @@ public class Simulation {
             action.perform();
         }
     }
-
-//    private void createWorldMap() {
-//        int x_Size = ActionsDataSingleton.getInstance().getX_SizeWorldMap();
-//        int y_Size = ActionsDataSingleton.getInstance().getY_SizeWorldMap();
-//        worldMapFactory = new WolfRabbitWorldMapFactory(x_Size, y_Size);
-//        worldMap = worldMapFactory.create();
-//    }
 
     private void initializeTurnActions() {
         turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap),

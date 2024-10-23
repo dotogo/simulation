@@ -1,7 +1,7 @@
 package com.dmitriykolesnik.simulation.entities.moving_entities.non_predators;
 
 import com.dmitriykolesnik.simulation.Coordinates;
-import com.dmitriykolesnik.simulation.MovementLogger;
+import com.dmitriykolesnik.simulation.logger.MovementLogger;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.entities.moving_entities.CreatureLifecycleManager;
 import com.dmitriykolesnik.simulation.entities.static_entities.EdiblePlant;
@@ -17,7 +17,7 @@ public abstract class NonPredator extends Creature {
     }
 
     @Override
-    public void makeMove(WorldMap worldMap, boolean isPrintLogging) {
+    public void makeMove(WorldMap worldMap, boolean isLoggingEnabled) {
         PathFinder pathFinder = new BreadthFirstSearch(worldMap);
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
 
@@ -29,7 +29,7 @@ public abstract class NonPredator extends Creature {
         MovementLogger logger = new MovementLogger(worldMap);
 
         if (isTargetFound) {
-            eatFood(worldMap, entityCoordinates, pathToTarget,targetCoordinates, getMaxAvailableHealthPoints(), logger, isPrintLogging);
+            eatFood(worldMap, entityCoordinates, pathToTarget,targetCoordinates, getMaxAvailableHealthPoints(), logger, isLoggingEnabled);
             return;
         }
 
@@ -40,8 +40,8 @@ public abstract class NonPredator extends Creature {
         creatureLifecycleManager.removeDeadCreature(worldMap, this,  isCreatureDied);
         creatureLifecycleManager.moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
 
-        logger.printCreatureDead(this, isCreatureDied, isPrintLogging);
-        logger.printFoodNotFound(this, isCreatureDied, isPrintLogging);
+        logger.printCreatureDead(this, isCreatureDied, isLoggingEnabled);
+        logger.printFoodNotFound(this, isCreatureDied, isLoggingEnabled);
     }
 
     protected void eatFood(WorldMap worldMap, Coordinates entityCoordinates, List<Coordinates> pathToTarget,

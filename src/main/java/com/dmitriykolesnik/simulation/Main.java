@@ -9,7 +9,7 @@ public class Main {
 //        simulation.startSimulation();
 
         SimulationManager simulationManager = new SimulationManager();
-        simulationManager.runSimulation();
+        simulationManager.run();
 
 
     }

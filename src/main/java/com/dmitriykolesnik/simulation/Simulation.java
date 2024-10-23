@@ -13,12 +13,11 @@ public class Simulation {
     private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 1000;
     private static final int SLEEP_MILLISECONDS_AFTER_RESUME = 2000;
     private static final int SLEEP_MILLISECONDS_AFTER_STARTING_TEXT = 3000;
-    private WorldMap worldMap;
+    private final WorldMap worldMap;
     private int turnCounter;
-    private boolean isPrintLogging;
+    private final boolean isLoggingEnabled;
     private volatile boolean isStopped = false;
-    //private volatile boolean isPaused = false;
-    private AtomicBoolean isPaused = new AtomicBoolean(false);
+    private final AtomicBoolean isPaused = new AtomicBoolean(false);
     private final WorldMapRenderer mapRender = new ConsoleWorldMapRenderer();
     private WorldMapFactory worldMapFactory; // = new WolfRabbitWorldMapFactory(30, 15);
 
@@ -36,9 +35,9 @@ public class Simulation {
     private static final String ENTER_TEXT = " and then ENTER";
     private static final String RESUME_TEXT = "To resume, press 's'";
 
-    public Simulation(WorldMap worldMap, boolean isPrintLogging) {
+    public Simulation(WorldMap worldMap, boolean isLoggingEnabled) {
         this.worldMap = worldMap;
-        this.isPrintLogging = isPrintLogging;
+        this.isLoggingEnabled = isLoggingEnabled;
     }
 
     // просимулировать и отрендерить один ход
@@ -51,7 +50,6 @@ public class Simulation {
     public void start() {
         initializeInitActions();
         performInitActions();
-        //createWorldMap();
         initializeTurnActions();
 
         // Start a thread to process keyboard input
@@ -218,7 +216,7 @@ public class Simulation {
 
     private void initializeTurnActions() {
         turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap),
-                                              new MoveAllCreaturesAction(worldMap, isPrintLogging)));
+                                              new MoveAllCreaturesAction(worldMap, isLoggingEnabled)));
     }
 
     private void performTurnActions() {

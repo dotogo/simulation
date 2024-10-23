@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoveAllCreaturesAction extends TurnAction{
-    boolean isPrintLogging;
+    boolean isLoggingEnabled;
 
-    public MoveAllCreaturesAction(WorldMap worldMap, boolean isPrintLogging) {
+    public MoveAllCreaturesAction(WorldMap worldMap, boolean isLoggingEnabled) {
         super(worldMap);
-        this.isPrintLogging = isPrintLogging;
+        this.isLoggingEnabled = isLoggingEnabled;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class MoveAllCreaturesAction extends TurnAction{
 
         for (Creature creature : creaturesToMove) {
             if (worldMap.isContainEntity(creature)) {
-                creature.makeMove(worldMap, isPrintLogging);
+                creature.makeMove(worldMap, isLoggingEnabled);
             }
         }
     }

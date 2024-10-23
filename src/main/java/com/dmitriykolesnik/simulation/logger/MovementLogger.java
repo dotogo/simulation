@@ -1,8 +1,8 @@
-package com.dmitriykolesnik.simulation;
+package com.dmitriykolesnik.simulation.logger;
 
+import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.NonPredator;
-import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.rodents.Rabbit;
 import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Predator;
 import com.dmitriykolesnik.simulation.entities.static_entities.EdiblePlant;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
@@ -17,7 +17,7 @@ public class MovementLogger {
     private final static String HEALTH = " Health Points: ";
     private final static String ID = " ID: ";
     private final static String FOOD_VALUE = " Food Value ";
-    private WorldMap worldMap;
+    private final WorldMap worldMap;
 
     public MovementLogger(WorldMap worldMap) {
         this.worldMap = worldMap;

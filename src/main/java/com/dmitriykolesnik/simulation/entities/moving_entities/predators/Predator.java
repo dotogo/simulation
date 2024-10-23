@@ -1,6 +1,6 @@
 package com.dmitriykolesnik.simulation.entities.moving_entities.predators;
 
-import com.dmitriykolesnik.simulation.MovementLogger;
+import com.dmitriykolesnik.simulation.logger.MovementLogger;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.moving_entities.CreatureLifecycleManager;
@@ -22,7 +22,7 @@ public abstract class Predator extends Creature {
         return attackForce;
     }
 
-    public void makeMove(WorldMap worldMap, boolean isPrintLogging) {
+    public void makeMove(WorldMap worldMap, boolean isLoggingEnabled) {
         PathFinder pathFinder = new BreadthFirstSearch(worldMap);
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
 
@@ -34,7 +34,7 @@ public abstract class Predator extends Creature {
         MovementLogger logger = new MovementLogger(worldMap);
 
         if (isTargetFound) {
-            attackPrey(worldMap, entityCoordinates, pathToTarget, targetCoordinates, logger, isPrintLogging);
+            attackPrey(worldMap, entityCoordinates, pathToTarget, targetCoordinates, logger, isLoggingEnabled);
             return;
         }
 
@@ -45,8 +45,8 @@ public abstract class Predator extends Creature {
         creatureLifecycleManager.removeDeadCreature(worldMap, this, isCreatureDied);
         creatureLifecycleManager.moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
 
-        logger.printPreyNotFound(this, isCreatureDied, isPrintLogging);
-        logger.printCreatureDead(this, isCreatureDied, isPrintLogging);
+        logger.printPreyNotFound(this, isCreatureDied, isLoggingEnabled);
+        logger.printCreatureDead(this, isCreatureDied, isLoggingEnabled);
     }
 
     protected void attackPrey(WorldMap worldMap, Coordinates entityCoordinates, List<Coordinates> pathToTarget,

@@ -4,7 +4,7 @@ import com.dmitriykolesnik.simulation.entities.Entity;
 import com.dmitriykolesnik.simulation.entities.EntityType;
 
 
-public class Tree extends Entity {
+public class Tree extends NonEdibleEntity {
 
     @Override
     public EntityType getEntityType() {

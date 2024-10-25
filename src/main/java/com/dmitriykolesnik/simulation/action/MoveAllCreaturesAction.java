@@ -8,11 +8,12 @@ import com.dmitriykolesnik.simulation.world_map.WorldMap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MoveAllCreaturesAction extends TurnAction{
+public class MoveAllCreaturesAction implements Actions {
+    private final WorldMap worldMap;
     boolean isLoggingEnabled;
 
     public MoveAllCreaturesAction(WorldMap worldMap, boolean isLoggingEnabled) {
-        super(worldMap);
+        this.worldMap = worldMap;
         this.isLoggingEnabled = isLoggingEnabled;
     }
 

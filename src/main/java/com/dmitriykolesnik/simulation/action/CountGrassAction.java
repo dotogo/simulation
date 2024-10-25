@@ -6,10 +6,11 @@ import com.dmitriykolesnik.simulation.entities.static_entities.Grass;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 
 
-public class CountGrassAction extends TurnAction{
+public class CountGrassAction implements Actions {
+    private final WorldMap worldMap;
 
     public CountGrassAction(WorldMap worldMap) {
-        super(worldMap);
+        this.worldMap = worldMap;
     }
 
     @Override

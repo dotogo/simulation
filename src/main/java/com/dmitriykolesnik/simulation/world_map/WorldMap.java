@@ -5,6 +5,7 @@ import com.dmitriykolesnik.simulation.entities.Entity;
 import com.dmitriykolesnik.simulation.exceptions.EntityNotFoundException;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class WorldMap {
     private final int xSize; // 0...x_Size
@@ -81,35 +82,6 @@ public class WorldMap {
         return entities.containsValue(entity);
     }
 
-//    public void moveAllCreatures() {
-//        Set<Coordinates> allCoordinates = new HashSet<>();
-//        Set<Creature> creaturesToMove = new HashSet<>();
-//
-//        for (int y = this.getYsize() - 1; y >= 0; y--) {
-//            for (int x = 0; x < this.getXsize(); x++) {
-//                Coordinates coordinates = new Coordinates(x, y);
-//                allCoordinates.add(coordinates);
-//            }
-//        }
-//
-//        for (Coordinates temp : allCoordinates) {
-//            if (this.isNotEmptyCell(temp)) {
-//                Entity entity = entities.get(temp);
-//
-//                if (entity instanceof Creature) {
-//                    creaturesToMove.add((Creature) entity);
-//                }
-//            }
-//        }
-//
-//        for (Creature creature : creaturesToMove) {
-//            if (entities.containsValue(creature)){
-//                creature.makeMove(this);
-//            }
-//        }
-//    }
-
-
     public Coordinates getEntityCoordinates(Entity entity) {
         if (entity == null) {
             throw new IllegalArgumentException("Getting entity coordinates failed. An entity can not be null.");
@@ -145,6 +117,13 @@ public class WorldMap {
             }
         }
         return coordinates;
+    }
+
+    public List<Entity> getAllEntities() {
+        Set<Map.Entry<Coordinates, Entity>> entrySet = entities.entrySet();
+        return entrySet.stream()
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
     }
 
 

@@ -205,7 +205,7 @@ public class Simulation {
 
 
     private void initializeInitActions() {
-        initActions = Arrays.asList(new WelcomeAction());
+        initActions = Arrays.asList(new WelcomeAction(), new CountEntitiesAction(worldMap));
     }
 
     private void performInitActions() {
@@ -215,7 +215,7 @@ public class Simulation {
     }
 
     private void initializeTurnActions() {
-        turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap),
+        turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap), new CountEntitiesAction(worldMap),
                                               new MoveAllCreaturesAction(worldMap, isLoggingEnabled)));
     }
 

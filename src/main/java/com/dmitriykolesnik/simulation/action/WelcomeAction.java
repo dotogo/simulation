@@ -1,7 +1,7 @@
 package com.dmitriykolesnik.simulation.action;
 
 
-public class WelcomeAction extends InitAction {
+public class WelcomeAction implements Actions {
     private static final String WELCOME = "   ***   Welcome to Simulation!   ***\n";
 
     public void perform() {

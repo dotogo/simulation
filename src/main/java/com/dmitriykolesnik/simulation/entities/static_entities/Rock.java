@@ -4,7 +4,7 @@ import com.dmitriykolesnik.simulation.entities.Entity;
 import com.dmitriykolesnik.simulation.entities.EntityType;
 
 
-public class Rock extends Entity {
+public class Rock extends NonEdibleEntity {
 
     @Override
     public EntityType getEntityType() {

@@ -28,6 +28,9 @@ public class CreatureLifecycleManager {
     public void moveLivingCreature(WorldMap worldMap, List<Coordinates> pathToTarget,
                                       Coordinates entityCoordinates, boolean isCreatureDied) {
         if (!isCreatureDied) {
+            if (pathToTarget.isEmpty()) {
+                return;
+            }
             int randomNumberFromPath = UtilSimulation.getRandomNumberBetween(0, pathToTarget.size() - 1);
             Coordinates randomCoordinatesFromPath = pathToTarget.get(randomNumberFromPath);
 

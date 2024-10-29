@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/EntitySpawnAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/CountEntitiesAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/action/CountEntitiesAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/EntitiesCounterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/EntitiesCounterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/EntityFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entity_factories/EntityFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/CreatureLifecycleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/CreatureLifecycleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/NonPredator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/non_predators/NonPredator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Predator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/moving_entities/predators/Predator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/PathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/pathfinder/PathFinder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.TestMain.executor": "Run",
-    "Application.com.dmitriykolesnik.simulation.Main.executor": "Debug",
+    "Application.com.dmitriykolesnik.simulation.Main.executor": "Run",
     "Application.com.dmitriykolesnik.simulation.for_something.ForSomething.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Maven.simulation [clean].executor": "Run",

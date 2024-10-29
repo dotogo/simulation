@@ -20,13 +20,19 @@ public abstract class NonPredator extends Creature {
     public void makeMove(WorldMap worldMap, boolean isLoggingEnabled) {
         PathFinder pathFinder = new BreadthFirstSearch(worldMap);
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
+        MovementLogger logger = new MovementLogger(worldMap);
 
         Coordinates entityCoordinates = worldMap.getEntityCoordinates(this);
         List<Coordinates> pathToTarget = pathFinder.find(entityCoordinates, this.getSpeed(), getTypeOfFood());
-        Coordinates targetCoordinates = pathToTarget.get(pathToTarget.size() - 1);
-        boolean isTargetFound = creatureLifecycleManager.isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
+        Coordinates targetCoordinates;
 
-        MovementLogger logger = new MovementLogger(worldMap);
+        if (!pathToTarget.isEmpty()) {
+            targetCoordinates = pathToTarget.get(pathToTarget.size() - 1);
+        } else {
+            targetCoordinates = entityCoordinates;
+        }
+
+        boolean isTargetFound = creatureLifecycleManager.isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
 
         if (isTargetFound) {
             eatFood(worldMap, entityCoordinates, pathToTarget,targetCoordinates, getMaxAvailableHealthPoints(), logger, isLoggingEnabled);

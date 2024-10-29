@@ -9,7 +9,6 @@ import com.dmitriykolesnik.simulation.entities.static_entities.EdiblePlant;
 import com.dmitriykolesnik.simulation.entities.static_entities.NonEdibleEntity;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 import org.reflections.Reflections;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +45,6 @@ public class CountEntitiesAction implements Actions  {
                 }
             }
         }
-        EntitiesCounterRepository.getInstance().setNumberOfEntitiesOfEachClass(entitiesCounter);
+        EntitiesCounterRepository.getInstance().setCurrentNumberOfEntitiesOfEachClass(entitiesCounter);
     }
 }

@@ -10,7 +10,8 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Simulation {
-    private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 1000;
+    //private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 1000;
+    private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 10;
     private static final int SLEEP_MILLISECONDS_AFTER_RESUME = 2000;
     private static final int SLEEP_MILLISECONDS_AFTER_STARTING_TEXT = 3000;
     private final WorldMap worldMap;
@@ -205,7 +206,9 @@ public class Simulation {
 
 
     private void initializeInitActions() {
-        initActions = Arrays.asList(new WelcomeAction(), new CountEntitiesAction(worldMap));
+        initActions = Arrays.asList(
+                new WelcomeAction(),
+                new CountEntitiesAction(worldMap));
     }
 
     private void performInitActions() {
@@ -215,8 +218,11 @@ public class Simulation {
     }
 
     private void initializeTurnActions() {
-        turnActions = new ArrayList<>(List.of(new CountGrassAction(worldMap), new CountEntitiesAction(worldMap),
-                                              new MoveAllCreaturesAction(worldMap, isLoggingEnabled)));
+        turnActions = new ArrayList<>(List.of(
+                new CountGrassAction(worldMap),
+                new CountEntitiesAction(worldMap),
+                new EntitySpawnAction(worldMap),
+                new MoveAllCreaturesAction(worldMap, isLoggingEnabled)));
     }
 
     private void performTurnActions() {

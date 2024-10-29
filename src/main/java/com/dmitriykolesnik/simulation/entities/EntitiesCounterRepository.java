@@ -6,7 +6,9 @@ import java.util.Objects;
 
 public class EntitiesCounterRepository {
     private static final EntitiesCounterRepository instance = new EntitiesCounterRepository();
-    private Map<Class<? extends Entity>, Integer> numberOfEntitiesOfEachClass;
+    private Map<Class<? extends Entity>, Integer> currentNumberOfEntitiesOfEachClass;
+    private Map<Class<? extends Entity>, Integer> initialNumberOfEntitiesOfEachClass;
+    private boolean isSimulationStarted = false;
 
     private EntitiesCounterRepository() {
 
@@ -16,11 +18,20 @@ public class EntitiesCounterRepository {
         return instance;
     }
 
-    public Map<Class<? extends Entity>, Integer> getNumberOfEntitiesOfEachClass() {
-        return Objects.requireNonNullElse(numberOfEntitiesOfEachClass, Collections.emptyMap());
+    public Map<Class<? extends Entity>, Integer> getCurrentNumberOfEntitiesOfEachClass() {
+        return Objects.requireNonNullElse(currentNumberOfEntitiesOfEachClass, Collections.emptyMap());
     }
 
-    public void setNumberOfEntitiesOfEachClass(Map<Class<? extends Entity>, Integer> numberOfEntitiesOfEachClass) {
-        this.numberOfEntitiesOfEachClass = numberOfEntitiesOfEachClass;
+    public void setCurrentNumberOfEntitiesOfEachClass(Map<Class<? extends Entity>, Integer> currentNumberOfEntitiesOfEachClass) {
+        this.currentNumberOfEntitiesOfEachClass = currentNumberOfEntitiesOfEachClass;
+
+        if (!isSimulationStarted) {
+            initialNumberOfEntitiesOfEachClass = currentNumberOfEntitiesOfEachClass;
+            isSimulationStarted = true;
+        }
+    }
+
+    public Map<Class<? extends Entity>, Integer> getInitialNumberOfEntitiesOfEachClass() {
+        return initialNumberOfEntitiesOfEachClass;
     }
 }

@@ -1,6 +1,8 @@
 package com.dmitriykolesnik.simulation;
 
 import com.dmitriykolesnik.simulation.menu.Menu;
+import com.dmitriykolesnik.simulation.pathfinder.BreadthFirstSearch;
+import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.world_map.*;
 
 public class SimulationManager {
@@ -21,7 +23,8 @@ public class SimulationManager {
     public void run() {
         mainMenu.show();
         mainMenu.execute();
-        Simulation simulation = new Simulation(worldMap, isLoggingEnabled);
+        PathFinder pathFinder = new BreadthFirstSearch(worldMap);
+        Simulation simulation = new Simulation(worldMap, pathFinder, isLoggingEnabled);
         simulation.start();
     }
 

@@ -1,51 +1,40 @@
 package com.dmitriykolesnik.simulation;
 
 import com.dmitriykolesnik.simulation.action.*;
+import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.view.ConsoleWorldMapRenderer;
 import com.dmitriykolesnik.simulation.view.WorldMapRenderer;
 import com.dmitriykolesnik.simulation.world_map.*;
-
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Simulation {
-    //private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 1000;
-    private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 10;
+    private static final int SLEEP_MILLISECONDS_BETWEEN_TURNS = 1000;
     private static final int SLEEP_MILLISECONDS_AFTER_RESUME = 2000;
     private static final int SLEEP_MILLISECONDS_AFTER_STARTING_TEXT = 3000;
-    private final WorldMap worldMap;
-    private int turnCounter;
-    private final boolean isLoggingEnabled;
-    private volatile boolean isStopped = false;
-    private final AtomicBoolean isPaused = new AtomicBoolean(false);
-    private final WorldMapRenderer mapRender = new ConsoleWorldMapRenderer();
-    private WorldMapFactory worldMapFactory; // = new WolfRabbitWorldMapFactory(30, 15);
 
-//    private final Object pauseLock = new Object(); // Блокировка для паузы
-//    private final ReentrantLock lock = new ReentrantLock(); // Блокировка
-//    private final Condition pauseCondition = lock.newCondition(); // Условие для паузы
-
-    // действия, совершаемые перед стартом симуляции. Пример - расставить объекты и существ на карте
-    private List<Actions> initActions;
-
-    // действия, совершаемые каждый ход. Примеры - передвижение существ, добавить травы или травоядных, если их осталось слишком мало
-    private List<Actions> turnActions;
     private static final String QUIT_TEXT = "To quit, press 'q'";
     private static final String PAUSE_TEXT = "To pause, press 's'";
     private static final String ENTER_TEXT = " and then ENTER";
     private static final String RESUME_TEXT = "To resume, press 's'";
 
-    public Simulation(WorldMap worldMap, boolean isLoggingEnabled) {
-        this.worldMap = worldMap;
-        this.isLoggingEnabled = isLoggingEnabled;
-    }
+    private final boolean isLoggingEnabled;
+    private final WorldMap worldMap;
+    private final PathFinder pathFinder;
 
-    // просимулировать и отрендерить один ход
-    public void nextTurn() {
-        mapRender.render(worldMap);
-        performTurnActions();
-        turnCounter++;
+    private final AtomicBoolean isPaused = new AtomicBoolean(false);
+    private final WorldMapRenderer mapRender = new ConsoleWorldMapRenderer();
+
+    private volatile boolean isStopped = false;
+    private int turnCounter;
+    private List<Actions> initActions;
+    private List<Actions> turnActions;
+
+    public Simulation(WorldMap worldMap, PathFinder pathFinder, boolean isLoggingEnabled) {
+        this.worldMap = worldMap;
+        this.pathFinder = pathFinder;
+        this.isLoggingEnabled = isLoggingEnabled;
     }
 
     public void start() {
@@ -58,45 +47,30 @@ public class Simulation {
 
         if (turnCounter == 0) {
             int waitSecondsAfterStartingText = SLEEP_MILLISECONDS_AFTER_STARTING_TEXT / 1000;
-            startingPrintText(waitSecondsAfterStartingText);
+            printStartText(waitSecondsAfterStartingText);
             sleepThread(SLEEP_MILLISECONDS_AFTER_STARTING_TEXT);
         }
 
         // Main Simulation loop
         while (!isStopped) {
-            if (!isPaused.get()) {
-                if (turnCounter != 0) {
-                    nextTurnPrintText();
-                }
-                nextTurn();
-            }
+            processNextTurn();
             sleepThread(SLEEP_MILLISECONDS_BETWEEN_TURNS);
         }
-        finishPrintText();
+        printFinishText();
     }
 
-    // Приостановить бесконечный цикл симуляции и рендеринга
     public void pause() {
         while (!isStopped) {
             try {
-                int input = System.in.read(); // Считываем одиночный символ
+                int input = System.in.read();
 
                 if (input == 's') {
-                    boolean currentPausedState = isPaused.get();
-
-                    if (isPaused.compareAndSet(currentPausedState, !currentPausedState)) {
-                        if (!currentPausedState) {
-                            pausePrintText();
-                        } else {
-                            resumePrintText();
-                            sleepThread(SLEEP_MILLISECONDS_AFTER_RESUME);
-                        }
-                    }
+                    togglePauseState();
                 }
 
                 if (input == 'q') {
                     isStopped = true;
-                    stoppedPrintText();
+                    printStopText();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -104,106 +78,37 @@ public class Simulation {
         }
     }
 
+    private void togglePauseState() {
+        boolean currentPausedState = isPaused.get();
 
+        if (isPaused.compareAndSet(currentPausedState, !currentPausedState)) {
+            if (!currentPausedState) {
+                printPauseText();
+            } else {
+                printResumeText();
+                sleepThread(SLEEP_MILLISECONDS_AFTER_RESUME);
+            }
+        }
+    }
 
+    private void processNextTurn() {
+        if (!isPaused.get()) {
+            if (turnCounter != 0) {
+                printNextTurnText();
+            }
+            nextTurn();
+        }
+    }
 
+    private void nextTurn() {
+        mapRender.render(worldMap);
+        performTurnActions();
+        turnCounter++;
+    }
 
-// рабочий вариант с wait, notify, synchronized
-//    public void startSimulation() {
-//        for (Actions action : initActions) {
-//            action.perform();
-//        }
-//
-//        int x_Size = 15;
-//        int y_Size = 15;
-//
-//
-//        worldMapFactory = new WolfRabbitWorldMapFactory(x_Size, y_Size);
-//        worldMap = worldMapFactory.create();
-//
-//        // Запускаем поток для обработки ввода с клавиатуры
-//        new Thread(this::pauseSimulation).start();
-//
-//        if (turnCounter == 0) {
-//            startingPrintText();
-//
-//            try {
-//                Thread.sleep(3000);
-//            } catch (InterruptedException e) {
-//                Thread.currentThread().interrupt();
-//            }
-//        }
-//
-//        // Главный цикл симуляции
-//        while (!isStopped) {
-//            synchronized (pauseLock) {
-//                // Если симуляция на паузе, ждем возобновления
-//                while (isPaused) {
-//                    try {
-//                        pauseLock.wait(); // Ждем уведомления
-//                    } catch (InterruptedException e) {
-//                        Thread.currentThread().interrupt();
-//                    }
-//                }
-//            }
-//
-//            if (!isStopped) {
-//                if (turnCounter != 0) {
-//                    nextTurnPrintText();
-//                }
-//                nextTurn();
-//
-//                // Имитация задержки между шагами симуляции
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    Thread.currentThread().interrupt();
-//                }
-//            }
-//        }
-//        finishPrintText();
-//    }
-//
-//    // Метод для обработки пользовательского ввода (для паузы и остановки)
-//    public void pauseSimulation() {
-//        while (!isStopped) {
-//            try {
-//                int input = System.in.read(); // Считываем одиночный символ
-//
-//                if (input == 's') {
-//                    synchronized (pauseLock) {
-//                        isPaused = !isPaused; // Меняем состояние паузы
-//                        if (!isPaused) {
-//                            pauseLock.notify(); // Уведомляем поток о возобновлении симуляции
-//                            resumePrintText();
-//
-//                            try {
-//                                Thread.sleep(2000);
-//                            } catch (InterruptedException e) {
-//                                Thread.currentThread().interrupt();
-//                            }
-//
-//                        } else {
-//                            pausePrintText();
-//                        }
-//                    }
-//                } else if (input == 'q') {
-//                    synchronized (pauseLock) {
-//                        isStopped = true;
-//                        isPaused = false;
-//                        pauseLock.notify(); // Уведомляем, чтобы выйти из паузы и завершить симуляцию
-//                    }
-//                    stoppedPrintText();
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
-
-
-
+    private void printNextTurnText() {
+        System.out.println("Next Turn #" + turnCounter);
+    }
 
     private void initializeInitActions() {
         initActions = Arrays.asList(
@@ -222,7 +127,7 @@ public class Simulation {
                 new CountGrassAction(worldMap),
                 new CountEntitiesAction(worldMap),
                 new EntitySpawnAction(worldMap),
-                new MoveAllCreaturesAction(worldMap, isLoggingEnabled)));
+                new MoveAllCreaturesAction(worldMap, pathFinder, isLoggingEnabled)));
     }
 
     private void performTurnActions() {
@@ -231,32 +136,28 @@ public class Simulation {
         }
     }
 
-    private void startingPrintText(int seconds) {
+    private void printStartText(int seconds) {
         System.out.printf("\nThe Simulation is starting in %d seconds...\n\n" +
                 PAUSE_TEXT + "\n" + QUIT_TEXT + "\n", seconds );
     }
 
-    private void pausePrintText() {
+    private void printPauseText() {
         System.out.println("Simulation paused. \n" +
                 RESUME_TEXT + ENTER_TEXT + "\n" +
                 QUIT_TEXT + ENTER_TEXT);
     }
 
-    private void resumePrintText() {
+    private void printResumeText() {
         System.out.println("Simulation resumed.\n" +
                 PAUSE_TEXT + "\n" + QUIT_TEXT + "\n");
     }
 
-    private void stoppedPrintText() {
+    private void printStopText() {
         System.out.println("You have decided to leave the Simulation.");
     }
 
-    private void finishPrintText() {
+    private void printFinishText() {
         System.out.println("\nSimulation finished. The World is not enough. Be brave, try again.");
-    }
-
-    private void nextTurnPrintText() {
-        System.out.println("Next Turn #" + turnCounter);
     }
 
     private void sleepThread(int milliseconds) {

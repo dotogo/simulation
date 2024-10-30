@@ -4,7 +4,6 @@ import com.dmitriykolesnik.simulation.logger.MovementLogger;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.moving_entities.CreatureLifecycleManager;
-import com.dmitriykolesnik.simulation.pathfinder.BreadthFirstSearch;
 import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 
@@ -22,8 +21,7 @@ public abstract class Predator extends Creature {
         return attackForce;
     }
 
-    public void makeMove(WorldMap worldMap, boolean isLoggingEnabled) {
-        PathFinder pathFinder = new BreadthFirstSearch(worldMap);
+    public void makeMove(WorldMap worldMap, PathFinder pathFinder, boolean isLoggingEnabled) {
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
         MovementLogger logger = new MovementLogger(worldMap);
 

@@ -17,8 +17,7 @@ public abstract class NonPredator extends Creature {
     }
 
     @Override
-    public void makeMove(WorldMap worldMap, boolean isLoggingEnabled) {
-        PathFinder pathFinder = new BreadthFirstSearch(worldMap);
+    public void makeMove(WorldMap worldMap, PathFinder pathFinder, boolean isLoggingEnabled) {
         CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
         MovementLogger logger = new MovementLogger(worldMap);
 

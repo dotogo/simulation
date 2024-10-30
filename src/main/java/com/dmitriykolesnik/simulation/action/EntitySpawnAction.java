@@ -59,7 +59,7 @@ public class EntitySpawnAction implements Actions {
             }
 
             // add some entities if the number of entities is less than a critical minimum
-            if (isSpawnNeeded(initialValue, currentValue)) {
+            if (isPartialSpawnNeeded(initialValue, currentValue)) {
                 freeCoordinates = getFreeCoordinates();
                 numberOfEntitiesToSpawn = calculateEntityToSpawn(initialValue, currentValue);
                 spawn(freeCoordinates, numberOfEntitiesToSpawn, key);
@@ -67,7 +67,7 @@ public class EntitySpawnAction implements Actions {
         }
     }
 
-    private boolean isSpawnNeeded(int initialValue, int currentValue) {
+    private boolean isPartialSpawnNeeded(int initialValue, int currentValue) {
         return (double) currentValue / initialValue * 100 <= CRITICALLY_LOW_PERCENTAGE_OF_ENTITIES;
     }
 

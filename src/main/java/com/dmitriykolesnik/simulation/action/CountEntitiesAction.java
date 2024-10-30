@@ -38,6 +38,14 @@ public class CountEntitiesAction implements Actions  {
 
         Map<Class<? extends Entity>, Integer> entitiesCounter = new HashMap<>();
 
+        countEntitiesByClass(allEntities, allSubclasses, entitiesCounter);
+
+        EntitiesCounterRepository.getInstance().setCurrentNumberOfEntitiesOfEachClass(entitiesCounter);
+    }
+
+    private void countEntitiesByClass(List<Entity> allEntities,
+                                      Set<Class<? extends Entity>> allSubclasses,
+                                      Map<Class<? extends Entity>, Integer> entitiesCounter) {
         for (Entity entity : allEntities) {
             for (Class<? extends Entity> clazz : allSubclasses) {
                 if (clazz.isAssignableFrom(entity.getClass())) {
@@ -45,6 +53,6 @@ public class CountEntitiesAction implements Actions  {
                 }
             }
         }
-        EntitiesCounterRepository.getInstance().setCurrentNumberOfEntitiesOfEachClass(entitiesCounter);
     }
+
 }

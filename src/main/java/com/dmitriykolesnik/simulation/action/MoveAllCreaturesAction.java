@@ -23,15 +23,13 @@ public class MoveAllCreaturesAction implements Actions {
     @Override
     public void perform() {
         List<Creature> creaturesToMove = new ArrayList<>();
+        List<Coordinates> allCoordinates = worldMap.getAllCoordinatesList();
 
-        for (int y = worldMap.getYsize() - 1; y >= 0; y--) {
-            for (int x = 0; x < worldMap.getXsize(); x++) {
-                Coordinates coordinates = new Coordinates(x, y);
-                if (worldMap.isNotEmptyCell(coordinates)) {
-                    Entity entity = worldMap.getEntity(coordinates);
-                    if (entity instanceof Creature) {
-                        creaturesToMove.add((Creature) entity);
-                    }
+        for (Coordinates coordinates : allCoordinates) {
+            if (worldMap.isNotEmptyCell(coordinates)) {
+                Entity entity = worldMap.getEntity(coordinates);
+                if (entity instanceof Creature) {
+                    creaturesToMove.add((Creature) entity);
                 }
             }
         }

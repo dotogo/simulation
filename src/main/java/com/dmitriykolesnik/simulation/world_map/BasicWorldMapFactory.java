@@ -59,7 +59,7 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     @Override
     public WorldMap create() {
         WorldMap worldMap = new WorldMap(horizontalSize, verticalSize);
-        List<Coordinates> allCoordinates = worldMap.getAllCoordinatesList();
+        List<Coordinates> allCoordinates = worldMap.getAllCoordinates();
 
         calculateNumberOfEachCreature();
 

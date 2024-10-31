@@ -38,7 +38,7 @@ public class SmallWorldMapFactory implements WorldMapFactory {
     @Override
     public WorldMap create() {
         WorldMap worldMap = new WorldMap(HORIZONTAL_SIZE, VERTICAL_SIZE);
-        List<Coordinates> allCoordinates = worldMap.getAllCoordinatesList();
+        List<Coordinates> allCoordinates = worldMap.getAllCoordinates();
 
         List<Entity> rabbits = getEntitiesToBePopulated(rabbitFactory, RABBIT_AMOUNT);
         List<Entity> wolfs = getEntitiesToBePopulated(wolfFactory, WOLF_AMOUNT);

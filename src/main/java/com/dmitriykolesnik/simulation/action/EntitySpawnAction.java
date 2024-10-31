@@ -72,7 +72,7 @@ public class EntitySpawnAction implements Actions {
     }
 
     private List<Coordinates> getFreeCoordinates() {
-        List<Coordinates> allCoordinates = worldMap.getAllCoordinatesList();
+        List<Coordinates> allCoordinates = worldMap.getAllCoordinates();
         List<Coordinates> freeCoordinates = new ArrayList<>();
 
         for (var coordinate : allCoordinates) {

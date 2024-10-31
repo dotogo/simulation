@@ -11,16 +11,14 @@ public enum EntityType {
     SHEEP(" \uD83D\uDC11 "),
     ZEBRA(" \uD83E\uDD93 "),
 
-    GRASS(" \uD83C\uDF31 "),
-    //ROCK("\uD83E\uDEA8"),
-    //ROCK(" □ "),
-    ROCK(" \uD83E\uDDF1 "),
-    //ROCK("    "),
-    TREE(" \uD83C\uDF33 "),
     RABBIT(" \uD83D\uDC07 "),
+    MOUSE(" \uD83D\uDC01 "),
+
+    GRASS(" \uD83C\uDF31 "),
     GRAIN(" \uD83C\uDF3E "),
-    MOUSE(" \uD83D\uDC01 ");
-    //MOUSE(" \uD83D\uDC2D ");
+
+    ROCK(" \uD83E\uDDF1 "),
+    TREE(" \uD83C\uDF33 ");
 
     private final String entitySprite;
 

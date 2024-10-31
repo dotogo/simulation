@@ -23,7 +23,7 @@ public class MoveAllCreaturesAction implements Actions {
     @Override
     public void perform() {
         List<Creature> creaturesToMove = new ArrayList<>();
-        List<Coordinates> allCoordinates = worldMap.getAllCoordinatesList();
+        List<Coordinates> allCoordinates = worldMap.getAllCoordinates();
 
         for (Coordinates coordinates : allCoordinates) {
             if (worldMap.isNotEmptyCell(coordinates)) {

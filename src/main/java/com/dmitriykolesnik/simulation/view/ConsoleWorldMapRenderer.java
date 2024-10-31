@@ -6,10 +6,10 @@ import com.dmitriykolesnik.simulation.world_map.WorldMap;
 public class ConsoleWorldMapRenderer implements WorldMapRenderer {
 
     public void render(WorldMap worldMap) {
-        for (int y = worldMap.getYsize() - 1; y >= 0; y--) {
+        for (int y = worldMap.getHeight() - 1; y >= 0; y--) {
             StringBuilder line = new StringBuilder();
 
-            for (int x = 0; x < worldMap.getXsize(); x++) {
+            for (int x = 0; x < worldMap.getWidth(); x++) {
                 Coordinates coordinates = new Coordinates(x, y);
 
                 if (!worldMap.isNotEmptyCell(coordinates)) {
@@ -34,7 +34,7 @@ public class ConsoleWorldMapRenderer implements WorldMapRenderer {
         }
 
         System.out.print("  ");
-        for (int i = 0; i < worldMap.getXsize(); i++) {
+        for (int i = 0; i < worldMap.getWidth(); i++) {
             if (i < 10) {
                 System.out.print("  " + i + " ");
             } else {

@@ -8,27 +8,25 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class WorldMap {
-    private final int xSize; // 0...x_Size
-    private final int ySize; // 0...y_Size
-
+    private final int width;
+    private final int height;
     private Map<Coordinates, Entity> entities = new HashMap<>();
 
-    public int getXsize() {
-        return xSize;
-    }
-
-    public int getYsize() {
-        return ySize;
-    }
-
-    public WorldMap(int xSize, int ySize) {
-        if (xSize > 0 && ySize > 0) {
-            this.xSize = xSize;
-            this.ySize = ySize;
+    public WorldMap(int width, int height) {
+        if (width > 0 && height > 0) {
+            this.width = width;
+            this.height = height;
         } else {
-            throw new IllegalArgumentException("x_Size and y_Size of the WorldMap must be greater than 0");
+            throw new IllegalArgumentException("Width and height of the WorldMap must be greater than 0");
         }
+    }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     public void setEntity(Coordinates coordinates, Entity entity) {
@@ -36,7 +34,7 @@ public class WorldMap {
             entities.put(coordinates, entity);
         } else {
             throw new IllegalArgumentException("The Entity must have positive coordinates within WorldMap " +
-                    "(less than xSize and ySize)");
+                    "(less than width and height)");
         }
     }
 
@@ -56,11 +54,6 @@ public class WorldMap {
         }
     }
 
-//    public void removeEntity(Entity entity) {
-//
-//    }
-
-
     public void moveEntity(Coordinates from, Coordinates to) {
         Entity entity = getEntity(from);
 
@@ -73,8 +66,8 @@ public class WorldMap {
     }
 
     public boolean isWithinWorldMap(Coordinates coordinates) {
-        boolean checkX = (coordinates.getX() >= 0) && (coordinates.getX() < xSize);
-        boolean checkY = (coordinates.getY() >= 0) && (coordinates.getY() < ySize);
+        boolean checkX = (coordinates.getX() >= 0) && (coordinates.getX() < width);
+        boolean checkY = (coordinates.getY() >= 0) && (coordinates.getY() < height);
         return checkX && checkY;
     }
 
@@ -102,17 +95,17 @@ public class WorldMap {
 //        }
 //
 //        return entities.entrySet().stream()
-//                .filter(entry -> entity.equals(entry.getValue())) // фильтруем по значению
-//                .map(Map.Entry::getKey) // отображаем в ключ (Coordinates)
-//                .findFirst() // получаем первый элемент, соответствующий условию
+//                .filter(entry -> entity.equals(entry.getValue()))
+//                .map(Map.Entry::getKey)
+//                .findFirst()
 //                .orElseThrow(() -> new EntityNotFoundException("The entity not found in the WorldMap"));
 //    }
 
-    public List<Coordinates> getAllCoordinatesList() {
+    public List<Coordinates> getAllCoordinates() {
         List<Coordinates> coordinates = new ArrayList<>();
 
-        for (int i = 0; i < this.xSize; i++) {
-            for (int j = 0; j < this.ySize; j++) {
+        for (int i = 0; i < this.width; i++) {
+            for (int j = 0; j < this.height; j++) {
                 coordinates.add(new Coordinates(i, j));
             }
         }
@@ -125,6 +118,5 @@ public class WorldMap {
                 .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
     }
-
 
 }

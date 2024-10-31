@@ -3,12 +3,12 @@ package com.dmitriykolesnik.simulation.entities.moving_entities.predators;
 import com.dmitriykolesnik.simulation.entities.EntityType;
 import com.dmitriykolesnik.simulation.entities.moving_entities.PreyForBigPredators;
 
-public class T_Rex extends Predator {
+public class TyrannosaurusRex extends Predator {
     private static final int MAX_AVAILABLE_HEALTH_POINTS = 500;
     private static final int REDUCE_HEALTH_POINTS_IF_FOOD_NOT_FOUND = 25;
     private static final Class<?> TYPE_OF_FOOD = PreyForBigPredators.class;
 
-    public T_Rex(int healthPoints, int speed, int attackForce) {
+    public TyrannosaurusRex(int healthPoints, int speed, int attackForce) {
         super(healthPoints, speed, attackForce);
     }
 

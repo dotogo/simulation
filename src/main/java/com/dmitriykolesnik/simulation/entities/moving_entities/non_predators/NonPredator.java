@@ -3,10 +3,7 @@ package com.dmitriykolesnik.simulation.entities.moving_entities.non_predators;
 import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.logger.MovementLogger;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
-import com.dmitriykolesnik.simulation.entities.moving_entities.CreatureLifecycleManager;
 import com.dmitriykolesnik.simulation.entities.static_entities.EdiblePlant;
-import com.dmitriykolesnik.simulation.pathfinder.BreadthFirstSearch;
-import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
 import java.util.List;
 
@@ -17,36 +14,14 @@ public abstract class NonPredator extends Creature {
     }
 
     @Override
-    public void makeMove(WorldMap worldMap, PathFinder pathFinder, boolean isLoggingEnabled) {
-        CreatureLifecycleManager creatureLifecycleManager = new CreatureLifecycleManager();
-        MovementLogger logger = new MovementLogger(worldMap);
+    protected void handleFoundFood(WorldMap worldMap, Coordinates entityCoordinates, List<Coordinates> pathToTarget,
+                                   Coordinates targetCoordinates, MovementLogger logger, boolean isLoggingEnabled) {
+        eatFood(worldMap, entityCoordinates, pathToTarget, targetCoordinates, getMaxAvailableHealthPoints(), logger, isLoggingEnabled);
+    }
 
-        Coordinates entityCoordinates = worldMap.getEntityCoordinates(this);
-        List<Coordinates> pathToTarget = pathFinder.find(entityCoordinates, this.getSpeed(), getTypeOfFood());
-        Coordinates targetCoordinates;
-
-        if (!pathToTarget.isEmpty()) {
-            targetCoordinates = pathToTarget.get(pathToTarget.size() - 1);
-        } else {
-            targetCoordinates = entityCoordinates;
-        }
-
-        boolean isTargetFound = creatureLifecycleManager.isFoodWasFound(worldMap, targetCoordinates, getTypeOfFood());
-
-        if (isTargetFound) {
-            eatFood(worldMap, entityCoordinates, pathToTarget,targetCoordinates, getMaxAvailableHealthPoints(), logger, isLoggingEnabled);
-            return;
-        }
-
-        // If no food is found, reduce the nonPredator's health
+    @Override
+    protected void reduceHealthIfFoodNotFound() {
         this.setHealthPoints(this.getHealthPoints() - getReduceHealthPointsIfFoodNotFound());
-        boolean isCreatureDied = this.getHealthPoints() <= 0;
-
-        creatureLifecycleManager.removeDeadCreature(worldMap, this,  isCreatureDied);
-        creatureLifecycleManager.moveLivingCreature(worldMap, pathToTarget, entityCoordinates, isCreatureDied);
-
-        logger.printCreatureDead(this, isCreatureDied, isLoggingEnabled);
-        logger.printFoodNotFound(this, isCreatureDied, isLoggingEnabled);
     }
 
     protected void eatFood(WorldMap worldMap, Coordinates entityCoordinates, List<Coordinates> pathToTarget,

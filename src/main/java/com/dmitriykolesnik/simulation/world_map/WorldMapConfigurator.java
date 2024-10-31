@@ -13,12 +13,12 @@ public class WorldMapConfigurator {
     private int occupancyRate;
 
     static {
-        ENTER_HORIZONTAL_SIZE = "Specify the horizontal size of the WorldMap (integer, MIN = " + GameSettings.getMinHorizontalWorldSize() +
-                ", MAX = " + GameSettings.getMaxHorizontalWorldSize() + ")";
-        ENTER_VERTICAL_SIZE = "Specify the vertical size of the WorldMap (integer, MIN = " + GameSettings.getMinVerticalWorldSize() +
-                ", MAX = " + GameSettings.getMaxVerticalWorldSize() + ")";
-        ENTER_OCCUPANCY_RATE = "Specify the occupancy rate of the WorldMap (integer, MIN = " + GameSettings.getMinOccupancyRate() +
-                ", MAX = " + GameSettings.getMaxOccupancyRate() + ")";
+        ENTER_HORIZONTAL_SIZE = "Specify the horizontal size of the WorldMap (integer, MIN = " + GameSettings.MIN_HORIZONTAL_WORLD_SIZE +
+                ", MAX = " + GameSettings.MAX_HORIZONTAL_WORLD_SIZE + ")";
+        ENTER_VERTICAL_SIZE = "Specify the vertical size of the WorldMap (integer, MIN = " + GameSettings.MIN_VERTICAL_WORLD_SIZE +
+                ", MAX = " + GameSettings.MAX_VERTICAL_WORLD_SIZE + ")";
+        ENTER_OCCUPANCY_RATE = "Specify the occupancy rate of the WorldMap (integer, MIN = " + GameSettings.MIN_OCCUPANCY_RATE +
+                ", MAX = " + GameSettings.MAX_OCCUPANCY_RATE + ")";
     }
 
     public void setSizes() {
@@ -83,18 +83,18 @@ public class WorldMapConfigurator {
     }
 
     private boolean checkHorizontalWorldSize(int horizontalSize) {
-        return (horizontalSize >= GameSettings.getMinHorizontalWorldSize()) &&
-                (horizontalSize <= GameSettings.getMaxHorizontalWorldSize());
+        return (horizontalSize >= GameSettings.MIN_HORIZONTAL_WORLD_SIZE) &&
+                (horizontalSize <= GameSettings.MAX_HORIZONTAL_WORLD_SIZE);
     }
 
     private boolean checkVerticalWorldSize(int verticalSize) {
-        return (verticalSize >= GameSettings.getMinVerticalWorldSize()) &&
-                (verticalSize <= GameSettings.getMaxVerticalWorldSize());
+        return (verticalSize >= GameSettings.MIN_VERTICAL_WORLD_SIZE) &&
+                (verticalSize <= GameSettings.MAX_VERTICAL_WORLD_SIZE);
     }
 
     private boolean checkOccupancyRate(int occupancyRate) {
-        return (occupancyRate >= GameSettings.getMinOccupancyRate()) &&
-                (occupancyRate <= GameSettings.getMaxOccupancyRate());
+        return (occupancyRate >= GameSettings.MIN_OCCUPANCY_RATE) &&
+                (occupancyRate <= GameSettings.MAX_OCCUPANCY_RATE);
     }
 
     private void printInputError() {

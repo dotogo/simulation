@@ -1,16 +1,18 @@
 package com.dmitriykolesnik.simulation.entities.static_entities;
 
 import com.dmitriykolesnik.simulation.entities.Entity;
+import com.dmitriykolesnik.simulation.util.GameSettings;
 
 
 public abstract class EdiblePlant extends Entity {
     private final int foodValue;
 
     public EdiblePlant(int foodValue) {
-        if (foodValue > 0 && foodValue <= 100) {
+        if (GameSettings.checkForGlobalSettings(foodValue)) {
             this.foodValue = foodValue;
         } else {
-            throw new IllegalArgumentException("foodValue must be > 0 and <= 100");
+            throw new IllegalArgumentException("foodValue must be > " + GameSettings.MIN_FOOD_VALUE +
+                    " and <= " + GameSettings.MAX_FOOD_VALUE);
         }
     }
 

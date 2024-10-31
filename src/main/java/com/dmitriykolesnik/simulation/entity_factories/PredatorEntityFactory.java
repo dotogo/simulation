@@ -6,18 +6,28 @@ import com.dmitriykolesnik.simulation.util.GameSettings;
 import com.dmitriykolesnik.simulation.util.UtilSimulation;
 
 public abstract class PredatorEntityFactory <T extends Creature> implements EntityFactory <T> {
-    protected abstract int getMinHealthPoints();
-    protected abstract int getMaxHealthPoints();
-    protected abstract int getMinSpeed();
-    protected abstract int getMaxSpeed();
-    protected abstract int getMinAttackForce();
-    protected abstract int getMaxAttackForce();
+    private final int minHealthPoints;
+    private final int maxHealthPoints;
+    private final int minSpeed;
+    private final int maxSpeed;
+    private final int minAttackForce;
+    private final int maxAttackForce;
+
+    protected PredatorEntityFactory(int minHealthPoints, int maxHealthPoints, int minSpeed,
+                                 int maxSpeed, int minAttackForce, int maxAttackForce) {
+        this.minHealthPoints = minHealthPoints;
+        this.maxHealthPoints = maxHealthPoints;
+        this.minSpeed = minSpeed;
+        this.maxSpeed = maxSpeed;
+        this.minAttackForce = minAttackForce;
+        this.maxAttackForce = maxAttackForce;
+    }
 
     @Override
-    public T create () {
-        int healthPoints = UtilSimulation.getRandomNumberBetween(getMinHealthPoints(), getMaxHealthPoints());
-        int speed = UtilSimulation.getRandomNumberBetween(getMinSpeed(), getMaxSpeed());
-        int attackForce = UtilSimulation.getRandomNumberBetween(getMinAttackForce(), getMaxAttackForce());
+    public T create() {
+        int healthPoints = UtilSimulation.getRandomNumberBetween(minHealthPoints, maxHealthPoints);
+        int speed = UtilSimulation.getRandomNumberBetween(minSpeed, maxSpeed);
+        int attackForce = UtilSimulation.getRandomNumberBetween(minAttackForce, maxAttackForce);
 
         if (GameSettings.checkForGlobalSettings(healthPoints, speed, attackForce)) {
             return produce(healthPoints, speed, attackForce);

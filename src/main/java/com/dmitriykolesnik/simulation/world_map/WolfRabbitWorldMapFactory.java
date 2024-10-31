@@ -20,10 +20,10 @@ public class WolfRabbitWorldMapFactory implements WorldMapFactory{
     private final static int AVERAGE_EMPTY_SPACE_PERCENT = 85;
     private final static Random RANDOM = new Random();
 
-    private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactoryRandom();
-    private final EntityFactory<Wolf> wolfFactory = new WolfFactoryRandom();
-    private final EntityFactory<Mouse> mouseFactoryRandom = new MouseFactoryRandom();
-    private final EntityFactory<Cat> catFactoryRandom = new CatFactoryRandom();
+    private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactory();
+    private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
+    private final EntityFactory<Mouse> mouseFactoryRandom = new MouseFactory();
+    private final EntityFactory<Cat> catFactoryRandom = new CatFactory();
     private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
 
     public WolfRabbitWorldMapFactory(int xSize, int ySize) {

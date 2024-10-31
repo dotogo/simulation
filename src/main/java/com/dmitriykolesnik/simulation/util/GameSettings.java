@@ -17,7 +17,7 @@ public class GameSettings {
     public static final int MAX_OCCUPANCY_RATE = 30;
     public static final int MIN_FOOD_VALUE = 5;
     public static final int MAX_FOOD_VALUE = 50;
-
+    public static final int MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT = 144;
 
     public static boolean checkForGlobalSettings(int healthPoints, int speed, int attackForce) {
         boolean checkHealthPoints = healthPoints >= MIN_HEALTH_POINTS && healthPoints <= MAX_HEALTH_POINTS;

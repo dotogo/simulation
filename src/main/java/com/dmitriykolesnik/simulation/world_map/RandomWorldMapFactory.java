@@ -15,7 +15,7 @@ public class RandomWorldMapFactory implements WorldMapFactory {
     private final static Random RANDOM = new Random();
 
     private final EntityFactory<Entity> entityFactory = new RandomEntityFactory();
-    //private final EntityFactory<Cat> entityFactory = new CatFactoryRandom();
+    //private final EntityFactory<Cat> entityFactory = new CatFactory();
 
     public WorldMap create() {
         WorldMap worldMap = new WorldMap(X_SIZE, Y_SIZE);
@@ -40,13 +40,13 @@ public class RandomWorldMapFactory implements WorldMapFactory {
         switch (randomEntityTypeNumberRepresentation) {
             case 0 :
                 //return new Cat(coordinates);
-                return new CatFactoryRandom().create(coordinates);
+                return new CatFactory().create(coordinates);
             case 1 :
-                return new LionFactoryRandom().create(coordinates);
+                return new LionFactory().create(coordinates);
             case 2 :
-                return new WolfFactoryRandom().create(coordinates);
+                return new WolfFactory().create(coordinates);
             case 3 :
-                return new T_RexFactory().create(coordinates);
+                return new TyrannosaurusRexFactory().create(coordinates);
 
             case 4 :
                 return new BuffaloFactory().create(coordinates);

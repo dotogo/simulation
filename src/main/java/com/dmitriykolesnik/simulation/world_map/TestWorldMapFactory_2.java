@@ -6,8 +6,8 @@ import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Wolf;
 import com.dmitriykolesnik.simulation.entities.static_entities.Grass;
 import com.dmitriykolesnik.simulation.entity_factories.EntityFactory;
 import com.dmitriykolesnik.simulation.entity_factories.impl.GrassFactoryRandom;
-import com.dmitriykolesnik.simulation.entity_factories.impl.RabbitFactoryRandom;
-import com.dmitriykolesnik.simulation.entity_factories.impl.WolfFactoryRandom;
+import com.dmitriykolesnik.simulation.entity_factories.impl.RabbitFactory;
+import com.dmitriykolesnik.simulation.entity_factories.impl.WolfFactory;
 
 import java.util.Random;
 
@@ -17,8 +17,8 @@ public class TestWorldMapFactory_2 implements WorldMapFactory {
     private final static int MIN_EMPTY_SPACE_PERCENT = 70;
     private final static Random RANDOM = new Random();
 
-    private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactoryRandom();
-    private final EntityFactory<Wolf> wolfFactory = new WolfFactoryRandom();
+    private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactory();
+    private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
     private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
 
 

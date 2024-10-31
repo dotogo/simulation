@@ -12,6 +12,7 @@ import com.dmitriykolesnik.simulation.entities.static_entities.Rock;
 import com.dmitriykolesnik.simulation.entities.static_entities.Tree;
 import com.dmitriykolesnik.simulation.entity_factories.EntityFactory;
 import com.dmitriykolesnik.simulation.entity_factories.impl.*;
+import com.dmitriykolesnik.simulation.util.GameSettings;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -28,16 +29,15 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     private static final int GRAIN_PERCENT_FROM_TOTAL_ENTITIES = 25;
     private static final int TREES_PERCENT_FROM_TOTAL_ENTITIES = 13;
     private static final int ROCK_PERCENT_FROM_TOTAL_ENTITIES = 10;
-    private static final int MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT = 144;
 
-    private final int horizontalSize;
-    private final int verticalSize;
+    private final int width;
+    private final int height;
     private final int occupancyRate;
 
-    private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactoryRandom();
-    private final EntityFactory<Wolf> wolfFactory = new WolfFactoryRandom();
-    private final EntityFactory<Cat> catFactory = new CatFactoryRandom();
-    private final EntityFactory<Mouse> mouseFactory = new MouseFactoryRandom();
+    private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactory();
+    private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
+    private final EntityFactory<Cat> catFactory = new CatFactory();
+    private final EntityFactory<Mouse> mouseFactory = new MouseFactory();
     private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
     private final EntityFactory<Grain> grainFactory = new GrainFactoryRandom();
 
@@ -50,15 +50,15 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     private int treesAmount;
     private int rockAmount;
 
-    public BasicWorldMapFactory(int horizontalSize, int verticalSize, int occupancyRate) {
-        this.horizontalSize = horizontalSize;
-        this.verticalSize = verticalSize;
+    public BasicWorldMapFactory(int width, int height, int occupancyRate) {
+        this.width = width;
+        this.height = height;
         this.occupancyRate = occupancyRate;
     }
 
     @Override
     public WorldMap create() {
-        WorldMap worldMap = new WorldMap(horizontalSize, verticalSize);
+        WorldMap worldMap = new WorldMap(width, height);
         List<Coordinates> allCoordinates = worldMap.getAllCoordinates();
 
         calculateNumberOfEachCreature();
@@ -85,7 +85,7 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     }
 
     private int calculateWorldMapArea() {
-        return horizontalSize * verticalSize;
+        return width * height;
     }
 
     private int calculateTotalEntities() {
@@ -93,7 +93,7 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     }
 
     private void calculateNumberOfEachCreature() {
-        if (calculateWorldMapArea() <= MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT) {
+        if (calculateWorldMapArea() <= GameSettings.MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT) {
             rabbitsAmount = 2;
             wolfsAmount = 1;
             catsAmount = 1;

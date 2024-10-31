@@ -18,10 +18,10 @@ public class EntitySpawnAction implements Actions {
     private static final int CRITICALLY_LOW_PERCENTAGE_OF_ENTITIES = 30;
     private final WorldMap worldMap;
     private final Map<Class<? extends Entity>, EntityFactory<? extends Entity>> factoryMap = Map.of(
-            Wolf.class, new WolfFactoryRandom(),
-            Rabbit.class, new RabbitFactoryRandom(),
-            Cat.class, new CatFactoryRandom(),
-            Mouse.class, new MouseFactoryRandom(),
+            Wolf.class, new WolfFactory(),
+            Rabbit.class, new RabbitFactory(),
+            Cat.class, new CatFactory(),
+            Mouse.class, new MouseFactory(),
             Grass.class, new GrassFactoryRandom(),
             Grain.class, new GrainFactoryRandom()
     );

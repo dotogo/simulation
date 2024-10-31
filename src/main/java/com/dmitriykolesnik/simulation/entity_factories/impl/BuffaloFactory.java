@@ -1,14 +1,19 @@
 package com.dmitriykolesnik.simulation.entity_factories.impl;
-/*
-import com.dmitriykolesnik.simulation.Coordinates;
-import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.herbivores.Buffalo;
-import com.dmitriykolesnik.simulation.entity_factories.EntityFactory;
 
-public class BuffaloFactory implements EntityFactory {
+import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.herbivores.Buffalo;
+import com.dmitriykolesnik.simulation.entity_factories.NonPredatorEntityFactory;
+
+
+public class BuffaloFactory extends NonPredatorEntityFactory<Buffalo> {
+
+    public BuffaloFactory() {
+        super(200, 280, 4, 6);
+    }
+
     @Override
-    public Buffalo create(Coordinates coordinates) {
-        return new Buffalo(coordinates);
+    protected Buffalo produce(int healthPoints, int speed) {
+        return new Buffalo(healthPoints, speed);
     }
 }
 
- */
+

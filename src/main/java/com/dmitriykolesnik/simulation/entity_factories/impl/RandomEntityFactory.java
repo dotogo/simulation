@@ -29,13 +29,13 @@ public class RandomEntityFactory implements EntityFactory<Entity> {
         switch (randomEntityTypeNumberRepresentation) {
             case 0 :
                 //return new Cat(coordinates);
-                return new CatFactoryRandom().create(coordinates);
+                return new CatFactory().create(coordinates);
             case 1 :
-                return new LionFactoryRandom().create(coordinates);
+                return new LionFactory().create(coordinates);
             case 2 :
-                return new WolfFactoryRandom().create(coordinates);
+                return new WolfFactory().create(coordinates);
             case 3 :
-                return new T_RexFactory().create(coordinates);
+                return new TyrannosaurusRexFactory().create(coordinates);
 
             case 4 :
                 return new BuffaloFactory().create(coordinates);

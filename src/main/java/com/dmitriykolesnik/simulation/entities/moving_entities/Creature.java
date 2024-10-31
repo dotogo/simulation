@@ -7,9 +7,7 @@ import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Predato
 import com.dmitriykolesnik.simulation.logger.MovementLogger;
 import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
-
 import java.util.List;
-
 
 public abstract class Creature extends Entity {
     private int healthPoints;

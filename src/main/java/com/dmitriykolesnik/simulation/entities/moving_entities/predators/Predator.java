@@ -4,7 +4,6 @@ import com.dmitriykolesnik.simulation.logger.MovementLogger;
 import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
 import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
-
 import java.util.List;
 
 public abstract class Predator extends Creature {

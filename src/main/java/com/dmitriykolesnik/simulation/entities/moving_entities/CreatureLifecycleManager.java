@@ -4,7 +4,6 @@ import com.dmitriykolesnik.simulation.Coordinates;
 import com.dmitriykolesnik.simulation.entities.Entity;
 import com.dmitriykolesnik.simulation.util.UtilSimulation;
 import com.dmitriykolesnik.simulation.world_map.WorldMap;
-
 import java.util.List;
 
 public class CreatureLifecycleManager {

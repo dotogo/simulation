@@ -3,7 +3,6 @@ package com.dmitriykolesnik.simulation.entities.moving_entities.predators;
 import com.dmitriykolesnik.simulation.entities.EntityType;
 import com.dmitriykolesnik.simulation.entities.moving_entities.PreyForBigPredators;
 
-
 public class Lion extends Predator {
     private static final int MAX_AVAILABLE_HEALTH_POINTS = 400;
     private static final int REDUCE_HEALTH_POINTS_IF_FOOD_NOT_FOUND = 20;

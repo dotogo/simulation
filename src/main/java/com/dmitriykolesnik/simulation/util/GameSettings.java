@@ -9,15 +9,15 @@ public class GameSettings {
     private static final int MIX_ATTACK_FORCE = 5;
     private static final int MAX_ATTACK_FORCE = 500;
 
-    public static final int MIN_HORIZONTAL_WORLD_SIZE = 10;
-    public static final int MAX_HORIZONTAL_WORLD_SIZE = 50;
-    public static final int MIN_VERTICAL_WORLD_SIZE = 10;
-    public static final int MAX_VERTICAL_WORLD_SIZE = 35;
+    public static final int MIN_WIDTH_OF_WORLD = 10;
+    public static final int MAX_WIDTH_OF_WORLD = 50;
+    public static final int MIN_HEIGHT_OF_WORLD = 10;
+    public static final int MAX_HEIGHT_OF_WORLD = 35;
     public static final int MIN_OCCUPANCY_RATE = 5;
     public static final int MAX_OCCUPANCY_RATE = 30;
     public static final int MIN_FOOD_VALUE = 5;
     public static final int MAX_FOOD_VALUE = 50;
-    public static final int MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT = 144;
+    public static final int MAX_WORLD_AREA_TO_USE_DEFAULT_ENTITIES_AMOUNT = 144;
 
     public static boolean checkForGlobalSettings(int healthPoints, int speed, int attackForce) {
         boolean checkHealthPoints = healthPoints >= MIN_HEALTH_POINTS && healthPoints <= MAX_HEALTH_POINTS;

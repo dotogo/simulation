@@ -8,35 +8,35 @@ public class WorldMapConfigurator {
     private static final String ENTER_OCCUPANCY_RATE;
     private static final String ENTER_HORIZONTAL_SIZE;
     private static final String ENTER_VERTICAL_SIZE;
-    private int horizontalSize;
-    private int verticalSize;
+    private int width;
+    private int height;
     private int occupancyRate;
 
     static {
-        ENTER_HORIZONTAL_SIZE = "Specify the horizontal size of the WorldMap (integer, MIN = " + GameSettings.MIN_HORIZONTAL_WORLD_SIZE +
-                ", MAX = " + GameSettings.MAX_HORIZONTAL_WORLD_SIZE + ")";
-        ENTER_VERTICAL_SIZE = "Specify the vertical size of the WorldMap (integer, MIN = " + GameSettings.MIN_VERTICAL_WORLD_SIZE +
-                ", MAX = " + GameSettings.MAX_VERTICAL_WORLD_SIZE + ")";
-        ENTER_OCCUPANCY_RATE = "Specify the occupancy rate of the WorldMap (integer, MIN = " + GameSettings.MIN_OCCUPANCY_RATE +
+        ENTER_HORIZONTAL_SIZE = "Specify the horizontal size of the World (integer, MIN = " + GameSettings.MIN_WIDTH_OF_WORLD +
+                ", MAX = " + GameSettings.MAX_WIDTH_OF_WORLD + ")";
+        ENTER_VERTICAL_SIZE = "Specify the vertical size of the World (integer, MIN = " + GameSettings.MIN_HEIGHT_OF_WORLD +
+                ", MAX = " + GameSettings.MAX_HEIGHT_OF_WORLD + ")";
+        ENTER_OCCUPANCY_RATE = "Specify the occupancy rate of the World (integer, MIN = " + GameSettings.MIN_OCCUPANCY_RATE +
                 ", MAX = " + GameSettings.MAX_OCCUPANCY_RATE + ")";
     }
 
     public void setSizes() {
         System.out.println(ENTER_HORIZONTAL_SIZE);
-        setHorizontalSize();
+        setWidth();
 
         System.out.println();
 
         System.out.println(ENTER_VERTICAL_SIZE);
-        setVerticalSize();
+        setHeight();
     }
 
-    public int getHorizontalSize() {
-        return horizontalSize;
+    public int getWidth() {
+        return width;
     }
 
-    public int getVerticalSize() {
-        return verticalSize;
+    public int getHeight() {
+        return height;
     }
 
     public void setEntityOccupancyRate() {
@@ -58,38 +58,38 @@ public class WorldMapConfigurator {
         return occupancyRate;
     }
 
-    private void setHorizontalSize() {
+    private void setWidth() {
         while (true) {
             int number = UtilSimulation.getPositiveIntFromKeyboard();
 
-            if(checkHorizontalWorldSize(number)) {
-                horizontalSize = number;
+            if(checkWidth(number)) {
+                width = number;
                 break;
             }
             printInputError();
         }
     }
 
-    private void setVerticalSize() {
+    private void setHeight() {
         while (true) {
             int number = UtilSimulation.getPositiveIntFromKeyboard();
 
-            if(checkVerticalWorldSize(number)) {
-                verticalSize = number;
+            if(checkHeight(number)) {
+                height = number;
                 break;
             }
             printInputError();
         }
     }
 
-    private boolean checkHorizontalWorldSize(int horizontalSize) {
-        return (horizontalSize >= GameSettings.MIN_HORIZONTAL_WORLD_SIZE) &&
-                (horizontalSize <= GameSettings.MAX_HORIZONTAL_WORLD_SIZE);
+    private boolean checkWidth(int width) {
+        return (width >= GameSettings.MIN_WIDTH_OF_WORLD) &&
+                (width <= GameSettings.MAX_WIDTH_OF_WORLD);
     }
 
-    private boolean checkVerticalWorldSize(int verticalSize) {
-        return (verticalSize >= GameSettings.MIN_VERTICAL_WORLD_SIZE) &&
-                (verticalSize <= GameSettings.MAX_VERTICAL_WORLD_SIZE);
+    private boolean checkHeight(int height) {
+        return (height >= GameSettings.MIN_HEIGHT_OF_WORLD) &&
+                (height <= GameSettings.MAX_HEIGHT_OF_WORLD);
     }
 
     private boolean checkOccupancyRate(int occupancyRate) {

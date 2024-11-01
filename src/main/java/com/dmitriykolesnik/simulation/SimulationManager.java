@@ -38,8 +38,8 @@ public class SimulationManager {
         WorldMapConfigurator worldMapConfigurator = new WorldMapConfigurator();
         worldMapConfigurator.setSizes();
 
-        int horizontalSize = worldMapConfigurator.getHorizontalSize();
-        int verticalSize = worldMapConfigurator.getVerticalSize();
+        int horizontalSize = worldMapConfigurator.getWidth();
+        int verticalSize = worldMapConfigurator.getHeight();
         int occupancyRate = 0;
 
         if (isUseNotDefaultEntitiesAmount(horizontalSize, verticalSize)) {
@@ -57,7 +57,7 @@ public class SimulationManager {
 //    }
 
     private boolean isUseNotDefaultEntitiesAmount(int horizontalSize, int verticalSize) {
-        return horizontalSize * verticalSize > GameSettings.MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT;
+        return horizontalSize * verticalSize > GameSettings.MAX_WORLD_AREA_TO_USE_DEFAULT_ENTITIES_AMOUNT;
     }
 
 }

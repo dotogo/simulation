@@ -93,7 +93,7 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     }
 
     private void calculateNumberOfEachCreature() {
-        if (calculateWorldMapArea() <= GameSettings.MAX_WORLD_MAP_AREA_FOR_USING_DEFAULT_ENTITIES_AMOUNT) {
+        if (isDefaultEntitiesAmount()) {
             rabbitsAmount = 2;
             wolfsAmount = 1;
             catsAmount = 1;
@@ -115,6 +115,10 @@ public class BasicWorldMapFactory implements WorldMapFactory {
         grainAmount = totalEntities * GRAIN_PERCENT_FROM_TOTAL_ENTITIES / 100;
         treesAmount = totalEntities * TREES_PERCENT_FROM_TOTAL_ENTITIES / 100;
         rockAmount = totalEntities * ROCK_PERCENT_FROM_TOTAL_ENTITIES / 100;
+    }
+
+    private boolean isDefaultEntitiesAmount() {
+        return calculateWorldMapArea() <= GameSettings.MAX_WORLD_AREA_TO_USE_DEFAULT_ENTITIES_AMOUNT;
     }
 
 }

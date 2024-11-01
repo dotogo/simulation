@@ -5,28 +5,19 @@ import com.dmitriykolesnik.simulation.exceptions.EntityNotCreatedException;
 import com.dmitriykolesnik.simulation.util.GameSettings;
 import com.dmitriykolesnik.simulation.util.UtilSimulation;
 
-public abstract class PredatorFactory<T extends Predator> implements EntityFactory <T> {
-    private final int minHealthPoints;
-    private final int maxHealthPoints;
-    private final int minSpeed;
-    private final int maxSpeed;
+public abstract class PredatorFactory<T extends Predator> extends MovingEntityFactory<T> {
     private final int minAttackForce;
     private final int maxAttackForce;
 
     protected PredatorFactory(int minHealthPoints, int maxHealthPoints, int minSpeed,
                               int maxSpeed, int minAttackForce, int maxAttackForce) {
-        this.minHealthPoints = minHealthPoints;
-        this.maxHealthPoints = maxHealthPoints;
-        this.minSpeed = minSpeed;
-        this.maxSpeed = maxSpeed;
+        super(minHealthPoints, maxHealthPoints, minSpeed, maxSpeed);
         this.minAttackForce = minAttackForce;
         this.maxAttackForce = maxAttackForce;
     }
 
     @Override
-    public T create() {
-        int healthPoints = UtilSimulation.getRandomNumberBetween(minHealthPoints, maxHealthPoints);
-        int speed = UtilSimulation.getRandomNumberBetween(minSpeed, maxSpeed);
+    protected T createEntity(int healthPoints, int speed) {
         int attackForce = UtilSimulation.getRandomNumberBetween(minAttackForce, maxAttackForce);
 
         if (GameSettings.checkForGlobalSettings(healthPoints, speed, attackForce)) {
@@ -34,6 +25,7 @@ public abstract class PredatorFactory<T extends Predator> implements EntityFacto
         } else {
             throw new EntityNotCreatedException("Predator creation failed");
         }
+
     }
 
     protected abstract T produce(int healthPoints, int speed, int attackForce);

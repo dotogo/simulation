@@ -22,8 +22,8 @@ public class EntitySpawnAction implements Actions {
             Rabbit.class, new RabbitFactory(),
             Cat.class, new CatFactory(),
             Mouse.class, new MouseFactory(),
-            Grass.class, new GrassFactoryRandom(),
-            Grain.class, new GrainFactoryRandom()
+            Grass.class, new GrassFactory(),
+            Grain.class, new GrainFactory()
     );
 
     public EntitySpawnAction(WorldMap worldMap) {

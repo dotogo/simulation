@@ -38,8 +38,8 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
     private final EntityFactory<Cat> catFactory = new CatFactory();
     private final EntityFactory<Mouse> mouseFactory = new MouseFactory();
-    private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
-    private final EntityFactory<Grain> grainFactory = new GrainFactoryRandom();
+    private final EntityFactory<Grass> grassFactory = new GrassFactory();
+    private final EntityFactory<Grain> grainFactory = new GrainFactory();
 
     private int rabbitsAmount;
     private int wolfsAmount;

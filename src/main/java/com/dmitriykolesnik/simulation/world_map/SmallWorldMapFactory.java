@@ -10,8 +10,8 @@ import com.dmitriykolesnik.simulation.entities.static_entities.Grass;
 import com.dmitriykolesnik.simulation.entities.static_entities.Rock;
 import com.dmitriykolesnik.simulation.entities.static_entities.Tree;
 import com.dmitriykolesnik.simulation.entity_factories.EntityFactory;
-import com.dmitriykolesnik.simulation.entity_factories.impl.GrainFactoryRandom;
-import com.dmitriykolesnik.simulation.entity_factories.impl.GrassFactoryRandom;
+import com.dmitriykolesnik.simulation.entity_factories.impl.GrainFactory;
+import com.dmitriykolesnik.simulation.entity_factories.impl.GrassFactory;
 import com.dmitriykolesnik.simulation.entity_factories.impl.RabbitFactory;
 import com.dmitriykolesnik.simulation.entity_factories.impl.WolfFactory;
 
@@ -32,8 +32,8 @@ public class SmallWorldMapFactory implements WorldMapFactory {
 
     private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactory();
     private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
-    private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
-    private final EntityFactory<Grain> grainFactory = new GrainFactoryRandom();
+    private final EntityFactory<Grass> grassFactory = new GrassFactory();
+    private final EntityFactory<Grain> grainFactory = new GrainFactory();
 
     @Override
     public WorldMap create() {

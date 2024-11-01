@@ -45,7 +45,7 @@ public class RandomEntityFactory implements EntityFactory<Entity> {
                 return new ZebraFactory().create(coordinates);
 
             case 7 :
-                return new GrassFactoryRandom().create(coordinates);
+                return new GrassFactory().create(coordinates);
             case 8 :
                 return new RockFactory().create(coordinates);
             case 9 :

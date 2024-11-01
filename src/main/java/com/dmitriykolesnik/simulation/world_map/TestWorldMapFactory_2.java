@@ -5,7 +5,7 @@ import com.dmitriykolesnik.simulation.entities.moving_entities.non_predators.rod
 import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Wolf;
 import com.dmitriykolesnik.simulation.entities.static_entities.Grass;
 import com.dmitriykolesnik.simulation.entity_factories.EntityFactory;
-import com.dmitriykolesnik.simulation.entity_factories.impl.GrassFactoryRandom;
+import com.dmitriykolesnik.simulation.entity_factories.impl.GrassFactory;
 import com.dmitriykolesnik.simulation.entity_factories.impl.RabbitFactory;
 import com.dmitriykolesnik.simulation.entity_factories.impl.WolfFactory;
 
@@ -19,7 +19,7 @@ public class TestWorldMapFactory_2 implements WorldMapFactory {
 
     private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactory();
     private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
-    private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
+    private final EntityFactory<Grass> grassFactory = new GrassFactory();
 
 
     @Override

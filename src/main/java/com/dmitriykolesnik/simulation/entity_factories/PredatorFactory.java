@@ -1,11 +1,11 @@
 package com.dmitriykolesnik.simulation.entity_factories;
 
-import com.dmitriykolesnik.simulation.entities.moving_entities.Creature;
+import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Predator;
 import com.dmitriykolesnik.simulation.exceptions.EntityNotCreatedException;
 import com.dmitriykolesnik.simulation.util.GameSettings;
 import com.dmitriykolesnik.simulation.util.UtilSimulation;
 
-public abstract class PredatorEntityFactory <T extends Creature> implements EntityFactory <T> {
+public abstract class PredatorFactory<T extends Predator> implements EntityFactory <T> {
     private final int minHealthPoints;
     private final int maxHealthPoints;
     private final int minSpeed;
@@ -13,8 +13,8 @@ public abstract class PredatorEntityFactory <T extends Creature> implements Enti
     private final int minAttackForce;
     private final int maxAttackForce;
 
-    protected PredatorEntityFactory(int minHealthPoints, int maxHealthPoints, int minSpeed,
-                                 int maxSpeed, int minAttackForce, int maxAttackForce) {
+    protected PredatorFactory(int minHealthPoints, int maxHealthPoints, int minSpeed,
+                              int maxSpeed, int minAttackForce, int maxAttackForce) {
         this.minHealthPoints = minHealthPoints;
         this.maxHealthPoints = maxHealthPoints;
         this.minSpeed = minSpeed;

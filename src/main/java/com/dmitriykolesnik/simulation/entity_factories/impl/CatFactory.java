@@ -1,10 +1,10 @@
 package com.dmitriykolesnik.simulation.entity_factories.impl;
 
 import com.dmitriykolesnik.simulation.entities.moving_entities.predators.Cat;
-import com.dmitriykolesnik.simulation.entity_factories.PredatorEntityFactory;
+import com.dmitriykolesnik.simulation.entity_factories.PredatorFactory;
 
 
-public class CatFactory extends PredatorEntityFactory<Cat> {
+public class CatFactory extends PredatorFactory<Cat> {
 
     public CatFactory() {
         super(75, 95, 2, 4, 20, 40);

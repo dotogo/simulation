@@ -24,7 +24,7 @@ public class WolfRabbitWorldMapFactory implements WorldMapFactory{
     private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
     private final EntityFactory<Mouse> mouseFactoryRandom = new MouseFactory();
     private final EntityFactory<Cat> catFactoryRandom = new CatFactory();
-    private final EntityFactory<Grass> grassFactory = new GrassFactoryRandom();
+    private final EntityFactory<Grass> grassFactory = new GrassFactory();
 
     public WolfRabbitWorldMapFactory(int xSize, int ySize) {
         X_SIZE = xSize;

@@ -8,7 +8,7 @@ public abstract class EdiblePlant extends Entity {
     private final int foodValue;
 
     public EdiblePlant(int foodValue) {
-        if (GameSettings.checkForGlobalSettings(foodValue)) {
+        if (GameSettings.checkEntitySettings(foodValue)) {
             this.foodValue = foodValue;
         } else {
             throw new IllegalArgumentException("foodValue must be > " + GameSettings.MIN_FOOD_VALUE +

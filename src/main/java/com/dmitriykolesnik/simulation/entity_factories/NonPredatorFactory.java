@@ -13,7 +13,7 @@ public abstract class NonPredatorFactory<T extends NonPredator> extends MovingEn
 
     @Override
     protected T createEntity(int healthPoints, int speed) {
-        if (GameSettings.checkForGlobalSettings(healthPoints, speed)) {
+        if (GameSettings.checkEntitySettings(healthPoints, speed)) {
             return produce(healthPoints, speed);
         } else {
             throw new EntityNotCreatedException("NonPredator creation failed");

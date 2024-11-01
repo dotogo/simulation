@@ -41,14 +41,14 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     private final EntityFactory<Grass> grassFactory = new GrassFactory();
     private final EntityFactory<Grain> grainFactory = new GrainFactory();
 
-    private int rabbitsAmount;
-    private int wolfsAmount;
-    private int catsAmount;
-    private int miceAmount;
-    private int grassAmount;
-    private int grainAmount;
-    private int treesAmount;
-    private int rockAmount;
+    private int rabbitsAmount = 2;
+    private int wolfsAmount = 1;
+    private int catsAmount = 1;
+    private int miceAmount = 2;
+    private int grassAmount = 5;
+    private int grainAmount = 5;
+    private int treesAmount = 2;
+    private int rockAmount = 2;
 
     public BasicWorldMapFactory(int width, int height, int occupancyRate) {
         this.width = width;
@@ -93,15 +93,7 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     }
 
     private void calculateNumberOfEachCreature() {
-        if (isDefaultEntitiesAmount()) {
-            rabbitsAmount = 2;
-            wolfsAmount = 1;
-            catsAmount = 1;
-            miceAmount = 2;
-            grassAmount = 5;
-            grainAmount = 5;
-            treesAmount = 2;
-            rockAmount = 2;
+        if (GameSettings.isDefaultEntitiesAmount(width, height)) {
             return;
         }
 
@@ -115,10 +107,6 @@ public class BasicWorldMapFactory implements WorldMapFactory {
         grainAmount = totalEntities * GRAIN_PERCENT_FROM_TOTAL_ENTITIES / 100;
         treesAmount = totalEntities * TREES_PERCENT_FROM_TOTAL_ENTITIES / 100;
         rockAmount = totalEntities * ROCK_PERCENT_FROM_TOTAL_ENTITIES / 100;
-    }
-
-    private boolean isDefaultEntitiesAmount() {
-        return calculateWorldMapArea() <= GameSettings.MAX_WORLD_AREA_TO_USE_DEFAULT_ENTITIES_AMOUNT;
     }
 
 }

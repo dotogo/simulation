@@ -19,7 +19,7 @@ public class GameSettings {
     public static final int MAX_FOOD_VALUE = 50;
     public static final int MAX_WORLD_AREA_TO_USE_DEFAULT_ENTITIES_AMOUNT = 144;
 
-    public static boolean checkForGlobalSettings(int healthPoints, int speed, int attackForce) {
+    public static boolean checkEntitySettings(int healthPoints, int speed, int attackForce) {
         boolean checkHealthPoints = healthPoints >= MIN_HEALTH_POINTS && healthPoints <= MAX_HEALTH_POINTS;
         boolean checkSpeed = speed >= MIN_SPEED && speed <= MAX_SPEED;
         boolean checkAttack = attackForce >= MIX_ATTACK_FORCE && attackForce <= MAX_ATTACK_FORCE;
@@ -27,14 +27,18 @@ public class GameSettings {
         return checkHealthPoints && checkSpeed && checkAttack;
     }
 
-    public static boolean checkForGlobalSettings(int healthPoints, int speed) {
+    public static boolean checkEntitySettings(int healthPoints, int speed) {
         boolean checkHealthPoints = healthPoints >= MIN_HEALTH_POINTS && healthPoints <= MAX_HEALTH_POINTS;
         boolean checkSpeed = speed >= MIN_SPEED && speed <= MAX_SPEED;
         return checkHealthPoints && checkSpeed;
     }
 
-    public static boolean checkForGlobalSettings(int foodValue) {
+    public static boolean checkEntitySettings(int foodValue) {
         return foodValue >= MIN_FOOD_VALUE && foodValue <= MAX_FOOD_VALUE;
+    }
+
+    public static boolean isDefaultEntitiesAmount(int width, int height) {
+        return width * height <= GameSettings.MAX_WORLD_AREA_TO_USE_DEFAULT_ENTITIES_AMOUNT;
     }
 
 }

@@ -20,7 +20,7 @@ public abstract class PredatorFactory<T extends Predator> extends MovingEntityFa
     protected T createEntity(int healthPoints, int speed) {
         int attackForce = UtilSimulation.getRandomNumberBetween(minAttackForce, maxAttackForce);
 
-        if (GameSettings.checkForGlobalSettings(healthPoints, speed, attackForce)) {
+        if (GameSettings.checkEntitySettings(healthPoints, speed, attackForce)) {
             return produce(healthPoints, speed, attackForce);
         } else {
             throw new EntityNotCreatedException("Predator creation failed");

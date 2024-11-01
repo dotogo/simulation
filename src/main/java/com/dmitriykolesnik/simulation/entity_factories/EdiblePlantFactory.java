@@ -18,7 +18,7 @@ public abstract class EdiblePlantFactory<T extends EdiblePlant> implements Entit
     public T create() {
         int foodValue = UtilSimulation.getRandomNumberBetween(minFoodValue, maxFoodValue);
 
-        if (GameSettings.checkForGlobalSettings(foodValue)) {
+        if (GameSettings.checkEntitySettings(foodValue)) {
             return produce(foodValue);
         } else {
             throw new EntityNotCreatedException("Entity creation failed");

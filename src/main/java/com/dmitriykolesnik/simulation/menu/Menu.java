@@ -1,6 +1,5 @@
 package com.dmitriykolesnik.simulation.menu;
 
-import com.dmitriykolesnik.simulation.action.Actions;
 import com.dmitriykolesnik.simulation.util.UtilSimulation;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class Menu {
         this.errorText = errorText;
     }
 
-    public void addItem(String name, Actions action) {
+    public void addItem(String name, Runnable action) {
         items.add(new Item(++idCounter, name, action));
     }
 
@@ -33,21 +32,30 @@ public class Menu {
         System.out.println(makeSelection);
         while (true) {
             int itemId = UtilSimulation.getPositiveIntFromKeyboard();
-            if (itemId > 0 && itemId <= items.size()) {
-                items.get(itemId - 1).getAction().perform();
+
+            if (isCorrectItemId(itemId)) {
+                runItemAction(itemId);
                 break;
             }
             System.out.println(errorText);
         }
     }
 
+    private boolean isCorrectItemId(int itemId) {
+        return (itemId > 0) && (itemId <= items.size());
+    }
+
+    private void runItemAction(int itemId) {
+        items.get(itemId - 1).getAction().run();
+    }
+
 
     private class Item {
         private final int id;
         private final String name;
-        private final Actions action;
+        private final Runnable action;
 
-        private Item(int id, String name, Actions action) {
+        private Item(int id, String name, Runnable action) {
             this.id = id;
             this.name = name;
             this.action = action;
@@ -61,7 +69,7 @@ public class Menu {
             return name;
         }
 
-        public Actions getAction() {
+        public Runnable getAction() {
             return action;
         }
     }

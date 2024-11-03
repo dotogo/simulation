@@ -1,6 +1,7 @@
 package com.dmitriykolesnik.simulation;
 
 import com.dmitriykolesnik.simulation.action.*;
+import com.dmitriykolesnik.simulation.entities.EntityFactoryRegistry;
 import com.dmitriykolesnik.simulation.pathfinder.PathFinder;
 import com.dmitriykolesnik.simulation.view.ConsoleWorldMapRenderer;
 import com.dmitriykolesnik.simulation.view.WorldMapRenderer;
@@ -19,6 +20,7 @@ public class Simulation {
     private final PathFinder pathFinder;
 
     private final AtomicBoolean isPaused = new AtomicBoolean(false);
+    private final EntityFactoryRegistry entityFactoryRegistry = new EntityFactoryRegistry();
     private final WorldMapRenderer mapRender = new ConsoleWorldMapRenderer();
     private final TextPrinter textPrinter = new TextPrinter();
 
@@ -117,7 +119,7 @@ public class Simulation {
     private void initializeTurnActions() {
         turnActions = new ArrayList<>(List.of(
                 new CountEntitiesAction(worldMap),
-                new EntitySpawnAction(worldMap),
+                new EntitySpawnAction(worldMap, entityFactoryRegistry.getFactoryMap()),
                 new MoveAllCreaturesAction(worldMap, pathFinder, isLoggingEnabled)));
     }
 

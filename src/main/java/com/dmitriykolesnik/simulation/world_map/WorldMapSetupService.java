@@ -27,16 +27,28 @@ public class WorldMapSetupService {
 
         int width = worldMapConfigurator.getWidth();
         int height = worldMapConfigurator.getHeight();
-        int occupancyRate = 0;
+        int occupancyRate = getOccupancyRate(width, height, worldMapConfigurator);
 
-        if (!GameSettings.isDefaultEntitiesAmount(width, height)) {
-            worldMapConfigurator.setEntityOccupancyRate();
-            occupancyRate = worldMapConfigurator.getOccupancyRate();
+        if (isDefaultEntitiesWillBePopulated(occupancyRate)) {
+            worldMapFactory = new BasicWorldMapFactory(width, height);
+        } else {
+            worldMapFactory = new BasicWorldMapFactory(width, height, occupancyRate);
         }
 
-        worldMapFactory = new BasicWorldMapFactory(width, height, occupancyRate);
         worldMap = worldMapFactory.create();
         isLoggingEnabled = false;
+    }
+
+    private int getOccupancyRate(int width, int height, WorldMapConfigurator worldMapConfigurator) {
+        if (!GameSettings.isDefaultEntitiesAmount(width, height)) {
+            worldMapConfigurator.setEntityOccupancyRate();
+            return worldMapConfigurator.getOccupancyRate();
+        }
+        return 0;
+    }
+
+    private boolean isDefaultEntitiesWillBePopulated(int occupancyRate) {
+        return occupancyRate == 0;
     }
 
 }

@@ -32,7 +32,7 @@ public class BasicWorldMapFactory implements WorldMapFactory {
 
     private final int width;
     private final int height;
-    private final int occupancyRate;
+    private int occupancyRate;
 
     private final EntityFactory<Rabbit> rabbitFactory = new RabbitFactory();
     private final EntityFactory<Wolf> wolfFactory = new WolfFactory();
@@ -50,7 +50,12 @@ public class BasicWorldMapFactory implements WorldMapFactory {
     private int treesAmount = 2;
     private int rockAmount = 2;
 
-    public BasicWorldMapFactory(int width, int height, int occupancyRate) {
+    public BasicWorldMapFactory(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public BasicWorldMapFactory(int width, int height, int occupancyRate ) {
         this.width = width;
         this.height = height;
         this.occupancyRate = occupancyRate;
@@ -108,5 +113,4 @@ public class BasicWorldMapFactory implements WorldMapFactory {
         treesAmount = totalEntities * TREES_PERCENT_FROM_TOTAL_ENTITIES / 100;
         rockAmount = totalEntities * ROCK_PERCENT_FROM_TOTAL_ENTITIES / 100;
     }
-
 }

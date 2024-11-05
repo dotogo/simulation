@@ -2,8 +2,8 @@ package com.dmitriykolesnik.simulation.util;
 
 
 public class GameSettings {
-    private static final int MIN_HEALTH_POINTS = 0;
-    private static final int MAX_HEALTH_POINTS = 100;
+    private static final int MIN_HEALTH_POINTS = 20;
+    private static final int MAX_HEALTH_POINTS = 500;
     private static final int MIN_SPEED = 1;
     private static final int MAX_SPEED = 10;
     private static final int MIX_ATTACK_FORCE = 5;

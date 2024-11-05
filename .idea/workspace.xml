@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c425dae-3d03-49ea-9207-505200478f74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/entities/EntitySelectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/menu/CustomWorldMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/BasicWorldMapFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/BasicWorldMapFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/menu/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/util/GameSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/CustomWorldMapFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/CustomWorldMapFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMapSetupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dmitriykolesnik/simulation/world_map/WorldMapSetupService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

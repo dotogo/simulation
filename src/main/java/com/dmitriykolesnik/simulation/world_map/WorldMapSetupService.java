@@ -1,6 +1,12 @@
 package com.dmitriykolesnik.simulation.world_map;
 
+import com.dmitriykolesnik.simulation.entities.Entity;
+import com.dmitriykolesnik.simulation.entities.EntityFactoryRegistry;
+import com.dmitriykolesnik.simulation.entities.EntitySelectionManager;
+import com.dmitriykolesnik.simulation.menu.CustomWorldMenu;
 import com.dmitriykolesnik.simulation.util.GameSettings;
+
+import java.util.Map;
 
 public class WorldMapSetupService {
     private WorldMapFactory worldMapFactory;
@@ -34,6 +40,30 @@ public class WorldMapSetupService {
         } else {
             worldMapFactory = new BasicWorldMapFactory(width, height, occupancyRate);
         }
+
+        worldMap = worldMapFactory.create();
+        isLoggingEnabled = false;
+    }
+
+    public void createCustomWorldMap() {
+        WorldMapConfigurator worldMapConfigurator = new WorldMapConfigurator();
+        worldMapConfigurator.setSizes();
+
+        int width = worldMapConfigurator.getWidth();
+        int height = worldMapConfigurator.getHeight();
+
+        EntityFactoryRegistry entityFactoryRegistry = new EntityFactoryRegistry();
+        EntitySelectionManager entitySelectionManager = new EntitySelectionManager(entityFactoryRegistry);
+
+        CustomWorldMenu customWorldMenu = new CustomWorldMenu(entitySelectionManager);
+
+        while (!entitySelectionManager.isSelectionFinished()) {
+            customWorldMenu.show();
+            customWorldMenu.execute();
+        }
+
+        Map<Class<? extends Entity>, Integer> entityCounts = entitySelectionManager.getEntityCounts();
+        worldMapFactory = new CustomWorldMapFactory(width, height, entityCounts);
 
         worldMap = worldMapFactory.create();
         isLoggingEnabled = false;

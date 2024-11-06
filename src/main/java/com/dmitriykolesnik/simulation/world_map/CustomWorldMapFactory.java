@@ -15,13 +15,13 @@ import java.util.Map;
 public class CustomWorldMapFactory implements WorldMapFactory {
     private final int width;
     private final int height;
-    private final Map<Class<? extends Entity>, Integer> entityCounts;
+    private final Map<Class<? extends Entity>, Integer> entitiesCounter;
     private final EntityFactoryRegistry factoryRegistry = new EntityFactoryRegistry();
 
-    public CustomWorldMapFactory(int width, int height, Map<Class<? extends Entity>, Integer> entityCounts) {
+    public CustomWorldMapFactory(int width, int height, Map<Class<? extends Entity>, Integer> entitiesCounter) {
         this.width = width;
         this.height = height;
-        this.entityCounts = entityCounts;
+        this.entitiesCounter = entitiesCounter;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class CustomWorldMapFactory implements WorldMapFactory {
     private List<Entity> populateEntities() {
         List<Entity> allEntities = new ArrayList<>();
 
-        entityCounts.forEach((entityClass, count) -> {
+        entitiesCounter.forEach((entityClass, count) -> {
             EntityFactory<? extends Entity> factory = factoryRegistry.getFactoryMap().get(entityClass);
 
             if (factory != null) {

@@ -58,6 +58,14 @@ public class WorldMapConfigurator {
         return occupancyRate;
     }
 
+    public int getMinAvailableNumberOfEntities() {
+        return width * height * GameSettings.MIN_OCCUPANCY_RATE / 100;
+    }
+
+    public int getMaxAvailableNumberOfEntities() {
+        return width * height * GameSettings.MAX_OCCUPANCY_RATE / 100;
+    }
+
     private void setWidth() {
         while (true) {
             int number = UtilSimulation.getPositiveIntFromKeyboard();

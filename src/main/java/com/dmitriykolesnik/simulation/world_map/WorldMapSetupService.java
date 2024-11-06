@@ -51,9 +51,19 @@ public class WorldMapSetupService {
 
         int width = worldMapConfigurator.getWidth();
         int height = worldMapConfigurator.getHeight();
+        int minNumberOfEntities = worldMapConfigurator.getMinAvailableNumberOfEntities();
+        int maxNumberOfEntities = worldMapConfigurator.getMaxAvailableNumberOfEntities();
 
+        Map<Class<? extends Entity>, Integer> entitiesCounter = getClassIntegerMap(minNumberOfEntities, maxNumberOfEntities);
+        worldMapFactory = new CustomWorldMapFactory(width, height, entitiesCounter);
+
+        worldMap = worldMapFactory.create();
+        isLoggingEnabled = false;
+    }
+
+    private Map<Class<? extends Entity>, Integer> getClassIntegerMap(int minNumberOfEntities, int maxNumberOfEntities) {
         EntityFactoryRegistry entityFactoryRegistry = new EntityFactoryRegistry();
-        EntitySelectionManager entitySelectionManager = new EntitySelectionManager(entityFactoryRegistry);
+        EntitySelectionManager entitySelectionManager = new EntitySelectionManager(entityFactoryRegistry, minNumberOfEntities, maxNumberOfEntities);
 
         CustomWorldMenu customWorldMenu = new CustomWorldMenu(entitySelectionManager);
 
@@ -61,12 +71,7 @@ public class WorldMapSetupService {
             customWorldMenu.show();
             customWorldMenu.execute();
         }
-
-        Map<Class<? extends Entity>, Integer> entityCounts = entitySelectionManager.getEntityCounts();
-        worldMapFactory = new CustomWorldMapFactory(width, height, entityCounts);
-
-        worldMap = worldMapFactory.create();
-        isLoggingEnabled = false;
+        return entitySelectionManager.getEntityCounts();
     }
 
     private int getOccupancyRate(int width, int height, WorldMapConfigurator worldMapConfigurator) {

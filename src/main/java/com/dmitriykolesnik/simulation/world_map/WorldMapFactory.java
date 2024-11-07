@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface WorldMapFactory {
-
-
     WorldMap create();
 
     default List<Entity> getEntitiesToBePopulated(EntityFactory<? extends Entity> entityFactory, int amount) {

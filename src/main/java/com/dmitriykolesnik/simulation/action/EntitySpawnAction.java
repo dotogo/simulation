@@ -25,12 +25,12 @@ public class EntitySpawnAction implements Actions {
         var currentNumberOfEntities = instance.getCurrentNumberOfEntitiesOfEachClass();
 
         for (var entry : initialNumberOfEntities.entrySet()) {
-            Class<? extends Entity> key = entry.getKey();
+            Class<? extends Entity> entityClass = entry.getKey();
             Integer initialValue = entry.getValue();
             Integer currentValue = 0;
 
-            if (isAtLeastOneEntityExist(currentNumberOfEntities, key)) {
-                currentValue = currentNumberOfEntities.get(key);
+            if (isAtLeastOneEntityExist(currentNumberOfEntities, entityClass)) {
+                currentValue = currentNumberOfEntities.get(entityClass);
             }
 
             if (Objects.equals(initialValue, currentValue)) {
@@ -38,11 +38,11 @@ public class EntitySpawnAction implements Actions {
             }
 
             if (currentValue == 0) {
-                spawnToInitialValues(initialValue, key);
+                spawnToInitialValues(initialValue, entityClass);
             }
 
             if (isPartialSpawnNeeded(initialValue, currentValue)) {
-                partialSpawn(initialValue, currentValue, key);
+                partialSpawn(initialValue, currentValue, entityClass);
             }
         }
     }
@@ -120,14 +120,14 @@ public class EntitySpawnAction implements Actions {
         return perimeterCoordinates.size() >= numberOfEntities;
     }
 
-    private boolean isSpawnEdiblePlant(Class<? extends Entity> key) {
-         return EdiblePlant.class.isAssignableFrom(key);
+    private boolean isSpawnEdiblePlant(Class<? extends Entity> entityClass) {
+         return EdiblePlant.class.isAssignableFrom(entityClass);
     }
 
-    private void spawn(List<Coordinates> coordinates, int entityAmount, Class<? extends Entity> clazz) {
-        EntityFactory<? extends Entity> factory = classWithItsFactory.get(clazz);
+    private void spawn(List<Coordinates> coordinates, int entityAmount, Class<? extends Entity> entityClass) {
+        EntityFactory<? extends Entity> factory = classWithItsFactory.get(entityClass);
         if (factory == null) {
-            throw new IllegalArgumentException("No factory found for class: " + clazz);
+            throw new IllegalArgumentException("No factory found for class: " + entityClass);
         }
 
         for (int i = 0; i < entityAmount; i++) {
@@ -143,8 +143,8 @@ public class EntitySpawnAction implements Actions {
         return random.nextInt(lackOfEntities) + 1;
     }
     private boolean isAtLeastOneEntityExist(Map<Class<? extends Entity>, Integer> currentNumberOfEntities,
-                                            Class<? extends Entity> key) {
-        return currentNumberOfEntities.containsKey(key);
+                                            Class<? extends Entity> entityClass) {
+        return currentNumberOfEntities.containsKey(entityClass);
     }
 
 }

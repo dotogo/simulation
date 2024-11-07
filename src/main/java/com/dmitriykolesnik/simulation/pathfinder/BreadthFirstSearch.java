@@ -60,8 +60,6 @@ public class BreadthFirstSearch implements PathFinder{
                     if (!freeCells.contains(coordinates)) {
                         freeCells.add(coordinates);
                     }
-
-
                 }
             }
         }

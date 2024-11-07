@@ -39,7 +39,7 @@ public class MovementLogger {
                     SPACE + predatorClassName + HEALTH + predator.getHealthPoints() + "\n" +
                     SPACE + preyClassName + COORDINATES + preyCoordinates + SPACE +
                     SPACE + preyClassName + ID + prey.getId() + SPACE +
-                    SPACE+ preyClassName + HEALTH + prey.getHealthPoints() + "\n");
+                    SPACE + preyClassName + HEALTH + prey.getHealthPoints() + "\n");
 
             System.out.print("Path to " + preyClassName + ": ");
             pathToPrey.forEach(e -> System.out.print(e + "  "));
@@ -87,7 +87,6 @@ public class MovementLogger {
                     SPACE + predatorClassName + ID + predator.getId() + SPACE +
                     SPACE + predatorClassName + HEALTH + predator.getHealthPoints() + "\n");
         }
-
     }
 
     public void printPreyStillAlive(Creature prey, boolean isPrintEnable) {

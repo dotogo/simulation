@@ -11,8 +11,8 @@ import java.util.List;
 
 public class MoveAllCreaturesAction implements Actions {
     private final WorldMap worldMap;
-    PathFinder pathFinder;
-    boolean isLoggingEnabled;
+    private final PathFinder pathFinder;
+    private final boolean isLoggingEnabled;
 
     public MoveAllCreaturesAction(WorldMap worldMap, PathFinder pathFinder, boolean isLoggingEnabled) {
         this.worldMap = worldMap;
